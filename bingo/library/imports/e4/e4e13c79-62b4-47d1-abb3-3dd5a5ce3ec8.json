@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "degndaijiaru",
+    "texture": "7df17481-ba6c-4762-a38c-42a9276db270",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      192,
+      49
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      192,
+      49
+    ]
+  }
+}

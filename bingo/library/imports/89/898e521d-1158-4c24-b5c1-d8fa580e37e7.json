@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "nengliang",
+    "texture": "ea67abf2-5511-42ac-817e-10df1dcc835f",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      41,
+      51
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      41,
+      51
+    ]
+  }
+}

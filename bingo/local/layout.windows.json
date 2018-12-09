@@ -1,0 +1,109 @@
+{
+  "version": "1.1.1",
+  "windows": {
+    "main": {
+      "main": true,
+      "url": "app://editor/index.html",
+      "windowType": "dockable",
+      "x": -1897,
+      "y": 0,
+      "width": 1869,
+      "height": 1057,
+      "layout": {
+        "children": [
+          {
+            "children": [
+              {
+                "active": 0,
+                "children": [
+                  "hierarchy"
+                ],
+                "height": 546.984375,
+                "type": "panel",
+                "width": 314
+              },
+              {
+                "active": 0,
+                "children": [
+                  "assets"
+                ],
+                "height": 416,
+                "type": "panel",
+                "width": 314
+              }
+            ],
+            "height": 966,
+            "type": "dock-v",
+            "width": 314
+          },
+          {
+            "children": [
+              {
+                "active": 0,
+                "children": [
+                  "scene"
+                ],
+                "height": 713,
+                "type": "panel",
+                "width": 988
+              },
+              {
+                "active": 0,
+                "children": [
+                  "console",
+                  "timeline"
+                ],
+                "height": 250,
+                "type": "panel",
+                "width": 988
+              }
+            ],
+            "height": 966,
+            "type": "dock-v",
+            "width": 988
+          },
+          {
+            "active": 0,
+            "children": [
+              "inspector"
+            ],
+            "height": 966,
+            "type": "panel",
+            "width": 555
+          }
+        ],
+        "type": "dock-h"
+      },
+      "panels": [
+        "console",
+        "inspector",
+        "hierarchy",
+        "assets",
+        "scene",
+        "timeline"
+      ]
+    },
+    "window-1544301737163": {},
+    "worker": {}
+  },
+  "panels": {
+    "sprite-editor": {
+      "x": 692,
+      "y": 267,
+      "width": 500,
+      "height": 522
+    },
+    "builder": {
+      "x": 710,
+      "y": 179,
+      "width": 500,
+      "height": 722
+    },
+    "project-settings": {
+      "x": 661,
+      "y": 267,
+      "width": 584,
+      "height": 548
+    }
+  }
+}

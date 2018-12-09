@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "dengji",
+    "texture": "84242a6c-efa1-413c-a2de-25c8b76ad7d5",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      50,
+      52
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      50,
+      52
+    ]
+  }
+}

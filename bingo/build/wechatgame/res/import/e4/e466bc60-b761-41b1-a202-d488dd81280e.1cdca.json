@@ -1,0 +1,1 @@
+[{"__type__":"cc.Prefab","_name":"LocalDataManager","data":{"__id__":1},"asyncLoadAssets":null},{"__type__":"cc.Node","_name":"localDataManager","_components":[{"__type__":"6f4c62YO5ZPu7Uy2wTSKHow","node":{"__id__":1}}],"_prefab":{"__type__":"cc.PrefabInfo","root":{"__id__":1},"asset":{"__id__":0},"fileId":"581LEy/FtC9rCR4eb1v5/U"}}]
