@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '6f4c62YO5ZPu7Uy2wTSKHow', 'LocalDataManager');
-// Script/Game/LocalData/LocalDataManager.ts
+// Script/LocalData/LocalDataManager.ts
 
 // Learn TypeScript:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/typescript.html
