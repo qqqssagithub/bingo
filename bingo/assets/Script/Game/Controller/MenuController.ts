@@ -10,6 +10,8 @@
 
 const { ccclass, property } = cc._decorator;
 
+import Platform from "../Platform/Platform"
+
 @ccclass
 export default class MenuController extends cc.Component {
 
@@ -17,18 +19,35 @@ export default class MenuController extends cc.Component {
     localDataManager = null;
     @property(cc.Prefab)
     userManager = null;
+    user = null;
 
     @property(cc.Label)
     lvLabel = null;
+    @property(cc.ProgressBar)
+    progress = null;
+    @property(cc.Sprite)
+    bar = null;
     @property(cc.Label)
-    scoreLabel = null;
+    powerLabel = null;
+    @property(cc.Label)
+    moneyLabel = null;
 
     localData = null;
     rankData = null;
 
     onLoad() {
-        this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
-        this.localData.parseRank(this.getLvAndScroe, this);
+        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+
+        Platform.getUserInfo((error, data) => {
+            if (error == null && data.userInfo != undefined) {
+                const userInfo = data.userInfo;
+                this.user.setUserInfo([userInfo.nickName, userInfo.avatarUrl]);
+            }
+        })
+        Platform.init();
+        // this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
+        // this.localData.parseRank(this.getLvAndScroe, this);
+        this.getLvAndScroe();
     }
 
     start() {
@@ -36,31 +55,49 @@ export default class MenuController extends cc.Component {
     }
 
     getLvAndScroe() {
-        this.rankData = this.localData.rankData;
-        var user = cc.instantiate(this.userManager).getComponent('UserManager');
-        var lv = user.getLv();
-        var score = user.getScore();
+        // this.rankData = this.localData.rankData;
+
+        var lv = this.user.getLv();
+        var progress = this.user.getProgress();
+        var power = this.user.getPower();
+        var money = this.user.getMoney();
 
         //初始化新手引导，
         //两步必须都完成，否则重置到最初阶段
-        if (!user.getIsShowGuide0() || !user.getIsShowGuide1()) {
-            user.initGuide();
-        }
+        // if (!this.user.getIsShowGuide0() || !this.user.getIsShowGuide1()) {
+        //     this.user.initGuide();
+        // }
 
-        var rank = this.rankData[lv];
-        var rank_arr = rank.split(',');
-        if (rank_arr.length >= 2) {
-            var s = "";
-            if (score < 60) {
-                s = "学渣";
-            } else if (60 <= score && score < 90) {
-                s = "学霸";
-            } else {
-                s = "学神";
-            }
-            this.lvLabel.string = rank_arr[1] + "  " + s;
+        // var rank = this.rankData[lv];
+        // var rank_arr = rank.split(',');
+        // if (rank_arr.length >= 2) {
+        //     var s = "";
+        //     if (score < 60) {
+        //         s = "学渣";
+        //     } else if (60 <= score && score < 90) {
+        //         s = "学霸";
+        //     } else {
+        //         s = "学神";
+        //     }
+        //     this.lvLabel.string = rank_arr[1] + "  " + s;
+        // }
+        // this.scoreLabel.string = score;
+        // this.scoreLabel.active = false;
+
+        this.lvLabel.string = lv;
+        let progressBar = this.progress.getComponent(cc.ProgressBar);
+        if (progress > 0.9) {
+            this.bar.type = cc.Sprite.Type.SLICED;
+        } else {
+            this.bar.type = cc.Sprite.Type.TILED;
         }
-        this.scoreLabel.string = score;
+        progressBar.progress = progress;
+        this.powerLabel.string = power;
+        this.moneyLabel.string = money;
+    }
+
+    addPowerAction() {
+        this.addPower();
     }
 
     beginAction() {
@@ -68,8 +105,21 @@ export default class MenuController extends cc.Component {
     }
 
     rankAction() {
-
+        cc.director.loadScene('RankScene');
     }
 
+    shareAction() {
+        this.addPower();
+    }
+
+    addPower() {
+        var self = this;
+        Platform.share(0, () => {
+            var power = parseInt(self.user.getPower());
+            power += 2;
+            self.user.setPower(power);
+            self.powerLabel.string = power;
+        });
+    }
     // update (dt) {}
 }

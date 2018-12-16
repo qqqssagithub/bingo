@@ -13,6 +13,7 @@ cc._RF.push(module, 'd52eekK1rZGQ6w9xR3r+ygA', 'PlayController');
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
+var Platform_1 = require("../Platform/Platform");
 var PlayController = /** @class */ (function (_super) {
     __extends(PlayController, _super);
     function PlayController() {
@@ -20,7 +21,13 @@ var PlayController = /** @class */ (function (_super) {
         _this.userManager = null;
         _this.user = null;
         _this.lvLabel = null;
-        _this.scoreLabel = null;
+        _this.progress = null;
+        _this.bar = null;
+        _this.powerLabel = null;
+        _this.moneyLabel = null;
+        /******* 头像 *******/
+        _this.headNode = null;
+        _this.headIcon = null;
         /******* 引导 *******/
         _this.guideNode0 = null;
         _this.guideNode1 = null;
@@ -59,49 +66,61 @@ var PlayController = /** @class */ (function (_super) {
         _this.helpButton = null;
         _this.helpCountLabel = null;
         _this.currentHelpCount = null;
+        /******* 规则 *******/
+        _this.ruleNode = null;
+        /******* 当前局结束 *******/
         _this.nextNode = null;
+        _this.flyScoreNode = null;
+        _this.intervalLine = 0;
+        _this.lineCount = 0;
         return _this;
     }
     PlayController.prototype.onLoad = function () {
+        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+        this.getLvAndScroe();
+        this.addHeadIcon();
+        var nextNodeScript = this.nextNode.getComponent("Next");
+        nextNodeScript.callback = this.nextShareCallback.bind(this);
         this.scrollerItems = [];
         this.bingoItems = [];
         this.answerLine = [];
         this.buildCoordinate();
         this.resetGameState();
         this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
-        this.localData.parseRank(this.getLvAndScroe, this);
+        // this.localData.parseRank(this.getLvAndScroe, this);
+        this.localData.parseParameter(this.getParameter, this);
     };
     PlayController.prototype.getLvAndScroe = function () {
-        this.localData.parseParameter(this.getParameter, this);
-        this.rankData = this.localData.rankData;
-        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
-        this.user.setHelpCount("990");
-        if (!this.user.getIsShowGuide0()) {
-            this.guideNode0.setPosition(270, 480);
+        var lv = this.user.getLv();
+        var progress = this.user.getProgress();
+        var power = this.user.getPower();
+        var money = this.user.getMoney();
+        this.lvLabel.string = lv;
+        var progressBar = this.progress.getComponent(cc.ProgressBar);
+        if (progress > 0.9) {
+            this.bar.type = cc.Sprite.Type.SLICED;
         }
         else {
-            this.guideNode0.setPosition(-858, 480);
+            this.bar.type = cc.Sprite.Type.TILED;
         }
-        var lv = this.user.getLv();
-        var score = this.user.getScore();
-        var helpCount = this.user.getHelpCount();
-        var rank = this.rankData[lv];
-        var rank_arr = rank.split(',');
-        if (rank_arr.length >= 2) {
-            var s = "";
-            if (score < 60) {
-                s = "学渣";
-            }
-            else if (60 <= score && score < 90) {
-                s = "学霸";
+        progressBar.progress = progress;
+        this.powerLabel.string = power;
+        this.moneyLabel.string = money;
+    };
+    PlayController.prototype.addHeadIcon = function () {
+        var userInfo = this.user.getUserInfo();
+        for (var index = 0; index < 6; index++) {
+            var headIcon = cc.instantiate(this.headIcon);
+            this.headNode.addChild(headIcon);
+            var headIconScript = headIcon.getComponent("HeadIcon");
+            if (index == 0 && userInfo[1] != "") {
+                headIconScript.initSpriteFrameWithUrl(userInfo[1]);
             }
             else {
-                s = "学神";
+                headIconScript.initSpriteFrameWithIndex(index);
             }
-            this.lvLabel.string = rank_arr[1] + "  " + s;
+            headIcon.setPosition(30 + index * 60, 30);
         }
-        this.scoreLabel.string = score;
-        this.helpCountLabel.string = "X " + helpCount;
     };
     PlayController.prototype.getParameter = function () {
         this.randomCount = this.localData.randomCount;
@@ -113,9 +132,9 @@ var PlayController = /** @class */ (function (_super) {
         this.isBeginGame = 1;
         this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备就绪";
         this.scrollerItemCount = 0;
-        this.bingoButton.interactable = false;
-        this.modeButton.interactable = true;
-        this.helpButton.interactable = false;
+        //this.bingoButton.interactable = false;
+        // this.modeButton.interactable = true;
+        // this.helpButton.interactable = false;
         this.gameTime = 0;
         this.currentHelpCount = 0;
         this.scrollerItems.forEach(function (scrollerItem) {
@@ -139,7 +158,7 @@ var PlayController = /** @class */ (function (_super) {
         if (this.randomAnswer.length < this.matrixRow * this.matrixRow) {
             return;
         }
-        if (this.bingoItems.length == this.matrixRow) {
+        if (this.bingoItems.length == this.matrixRow) { //刷新界面只需要重置bingoItem的状态就行
             var index = 0;
             for (var i = 0; i < this.matrixRow; i++) {
                 for (var j = 0; j < this.matrixRow; j++) {
@@ -151,7 +170,7 @@ var PlayController = /** @class */ (function (_super) {
                 }
             }
         }
-        else {
+        else { //第一次进入playScene
             var index = 0;
             for (var i = 0; i < this.matrixRow; i++) {
                 var itemArr = [];
@@ -206,7 +225,7 @@ var PlayController = /** @class */ (function (_super) {
         scrollerItemScript.setData(content, movingTime_temp);
         this.scrollerItemCount++;
         this.scrollerItems.push(scrollerItem);
-        if (this.scrollerItemCount == this.randomCount && this.intervalNum) {
+        if (this.scrollerItemCount >= this.randomCount && this.intervalNum) {
             clearInterval(this.intervalNum);
         }
     };
@@ -218,28 +237,65 @@ var PlayController = /** @class */ (function (_super) {
             this.user.setIsShowGuide1(true);
         }
         if (this.isBeginGame == 1) { //准备就绪
+            var power = parseInt(this.user.getPower());
+            power -= 2;
+            this.user.setPower(power);
+            this.powerLabel.string = power;
             this.bingoItemMaskNode.setPosition(-240, 526);
             this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "放弃";
             this.isBeginGame = 2;
-            this.modeButton.interactable = false;
+            // this.modeButton.interactable = false;
             this.addScrollerItem(); //先执行一次
             var spawningTime_temp = this.spawningTime;
-            var mode = this.user.getGameMode();
-            if (mode == "2") {
-                this.helpButton.interactable = false;
-                spawningTime_temp /= 2;
-            }
-            else {
-                this.helpButton.interactable = true;
-            }
+            // var mode = this.user.getGameMode();
+            // if (mode == "2") {
+            //     this.helpButton.interactable = false;
+            //     spawningTime_temp /= 2;
+            // } else {
+            //     this.helpButton.interactable = true;
+            // }
             this.intervalNum = setInterval(this.addScrollerItem.bind(this), 1000 * spawningTime_temp);
         }
         else {
             this.refreshUI();
         }
     };
+    PlayController.prototype.flyScore = function (item) {
+        var s0 = "+1XP";
+        var s = cc.instantiate(this.flyScoreNode);
+        var pos0 = item.parent.convertToWorldSpaceAR(item.position);
+        var pos1 = cc.v2(126, 865);
+        s.setPosition(pos0.x, pos0.y);
+        s.getComponent(cc.Label).string = s0;
+        this.node.addChild(s);
+        var playTime = cc.pDistance(pos0, pos1) / 500.0;
+        var action = cc.moveTo(playTime, pos1);
+        var action1 = cc.scaleTo(playTime, 0.3);
+        s.stopAllActions();
+        var self = this;
+        var spawn = cc.spawn(action, action1);
+        s.runAction(cc.sequence(spawn, cc.callFunc(function () {
+            var totalScore = self.user.getTotalScore();
+            totalScore++;
+            self.user.setTotalScore(totalScore);
+            var lv = self.user.getLv();
+            var progress = self.user.getProgress();
+            self.lvLabel.string = lv;
+            var progressBar = self.progress.getComponent(cc.ProgressBar);
+            if (progress > 0.9) {
+                self.bar.type = cc.Sprite.Type.SLICED;
+            }
+            else {
+                self.bar.type = cc.Sprite.Type.TILED;
+            }
+            progressBar.progress = progress;
+            s.destroy();
+        })));
+    };
     PlayController.prototype.bingoItemCallback = function (i, j) {
-        this.bingoButton.interactable = false;
+        //this.bingoButton.interactable = false;
+        this.flyScore(this.bingoItems[i][j]);
+        this.answerLine.splice(0, this.answerLine.length);
         //横排
         for (var row = 0; row < this.matrixRow; row++) {
             var bingoItem = this.bingoItems[row][j];
@@ -248,7 +304,8 @@ var PlayController = /** @class */ (function (_super) {
                 break;
             }
             if (row == this.matrixRow - 1) {
-                this.bingoButton.interactable = true;
+                //this.bingoButton.interactable = true;
+                this.bingo();
                 for (var index = 0; index < this.matrixRow; index++) {
                     var bingoItem = this.bingoItems[index][j];
                     this.answerLine.push(bingoItem);
@@ -264,7 +321,8 @@ var PlayController = /** @class */ (function (_super) {
                 break;
             }
             if (column == this.matrixRow - 1) {
-                this.bingoButton.interactable = true;
+                //this.bingoButton.interactable = true;
+                this.bingo();
                 for (var index = 0; index < this.matrixRow; index++) {
                     var bingoItem = this.bingoItems[i][index];
                     this.answerLine.push(bingoItem);
@@ -281,7 +339,8 @@ var PlayController = /** @class */ (function (_super) {
                     break;
                 }
                 if (row == this.matrixRow - 1) {
-                    this.bingoButton.interactable = true;
+                    //this.bingoButton.interactable = true;
+                    this.bingo();
                     for (var index = 0; index < this.matrixRow; index++) {
                         var bingoItem = this.bingoItems[index][index];
                         this.answerLine.push(bingoItem);
@@ -299,7 +358,8 @@ var PlayController = /** @class */ (function (_super) {
                     break;
                 }
                 if (row == this.matrixRow - 1) {
-                    this.bingoButton.interactable = true;
+                    //this.bingoButton.interactable = true;
+                    this.bingo();
                     for (var index = 0; index < this.matrixRow; index++) {
                         var bingoItem = this.bingoItems[index][this.matrixRow - 1 - index];
                         this.answerLine.push(bingoItem);
@@ -307,6 +367,44 @@ var PlayController = /** @class */ (function (_super) {
                     return;
                 }
             }
+        }
+    };
+    PlayController.prototype.bingo = function () {
+        this.bingoItemMaskNode.setPosition(-240, -240);
+        var power = parseInt(this.user.getPower());
+        power += 2;
+        this.user.setPower(power);
+        this.powerLabel.string = power;
+        var money = parseInt(this.user.getMoney());
+        money += 100;
+        this.user.setMoney(money);
+        this.moneyLabel.string = money;
+        this.nextNode.setPosition(270, 480);
+        this.isBeginGame = 3;
+        if (this.intervalNum) {
+            clearInterval(this.intervalNum);
+        }
+        this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
+        this.lineCount = 0;
+        this.intervalLine = setInterval(this.lineAni.bind(this), 80);
+        // this.answerLine.forEach(element => {
+        //     var bingoItemScript = element.getComponent("BingoItem");
+        //     bingoItemScript.setError();
+        // });
+    };
+    PlayController.prototype.lineAni = function () {
+        if (this.lineCount < this.answerLine.length) {
+            var bingoItemScript = this.answerLine[this.lineCount].getComponent("BingoItem");
+            bingoItemScript.setError();
+        }
+        else {
+            this.answerLine.splice(0, this.answerLine.length);
+        }
+        this.lineCount++;
+        if (this.lineCount >= 6 && this.intervalLine) {
+            clearInterval(this.intervalLine);
+            var nextNodeScript = this.nextNode.getComponent("Next");
+            nextNodeScript.setData(true);
         }
     };
     PlayController.prototype.bingoAction = function (event) {
@@ -323,10 +421,18 @@ var PlayController = /** @class */ (function (_super) {
         nextNodeScript.setData(isAllTrue);
         this.isBeginGame = 3;
         this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
-        this.bingoButton.interactable = false;
-        this.helpButton.interactable = false;
+        //this.bingoButton.interactable = false;
+        // this.helpButton.interactable = false;
         if (this.intervalNum) {
             clearInterval(this.intervalNum);
+        }
+    };
+    PlayController.prototype.moveRuleAction = function () {
+        if (this.ruleNode.position.x < 835) {
+            this.ruleNode.setPosition(835, 1495);
+        }
+        else {
+            this.ruleNode.setPosition(270, 480);
         }
     };
     PlayController.prototype.update = function (dt) {
@@ -340,9 +446,38 @@ var PlayController = /** @class */ (function (_super) {
                 movingTime_temp /= 2;
             }
             if (this.gameTime >= spawningTime_temp * (this.randomCount - 1) + movingTime_temp) {
-                this.bingoAction(null);
+                //this.bingoAction(null);
+                this.nextNode.setPosition(270, 480);
+                this.isBeginGame = 3;
+                if (this.intervalNum) {
+                    clearInterval(this.intervalNum);
+                }
+                this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
+                var nextNodeScript = this.nextNode.getComponent("Next");
+                nextNodeScript.setData(false);
             }
         }
+    };
+    PlayController.prototype.backAction = function () {
+        cc.director.loadScene("MenuScene");
+    };
+    PlayController.prototype.addPowerAction = function () {
+        this.addPower();
+    };
+    PlayController.prototype.addPower = function () {
+        var self = this;
+        Platform_1.default.share(0, function () {
+            var power = parseInt(self.user.getPower());
+            power += 2;
+            self.user.setPower(power);
+            self.powerLabel.string = power;
+        });
+    };
+    PlayController.prototype.nextShareCallback = function () {
+        var power = parseInt(this.user.getPower());
+        power += 2;
+        this.user.setPower(power);
+        this.powerLabel.string = power;
     };
     PlayController.prototype.changeModeAction = function (event) {
         if (this.guideNode0.position.x > 0) {
@@ -354,21 +489,20 @@ var PlayController = /** @class */ (function (_super) {
         this.modeNode.setPosition(270, 480);
     };
     PlayController.prototype.helpAction = function (event) {
-        var helpCount = parseInt(this.user.getHelpCount());
-        if (helpCount <= 0) {
-            return;
-        }
-        helpCount--;
-        this.user.setHelpCount(helpCount);
-        this.helpCountLabel.string = "X " + helpCount;
-        this.currentHelpCount++;
-        var mode = this.user.getGameMode();
-        if (mode == "0" && this.currentHelpCount >= 5) {
-            this.helpButton.interactable = false;
-        }
-        else if (mode == "1" && this.currentHelpCount >= 2) {
-            this.helpButton.interactable = false;
-        }
+        // var helpCount = parseInt(this.user.getHelpCount());
+        // if (helpCount <= 0) {
+        //     return;
+        // }
+        // helpCount--;
+        // this.user.setHelpCount(helpCount);
+        // this.helpCountLabel.string = "X " + helpCount;
+        // this.currentHelpCount++;
+        // var mode = this.user.getGameMode();
+        // if (mode == "0" && this.currentHelpCount >= 5) {
+        //     this.helpButton.interactable = false;
+        // } else if (mode == "1" && this.currentHelpCount >= 2) {
+        //     this.helpButton.interactable = false;
+        // }
     };
     __decorate([
         property(cc.Prefab)
@@ -377,8 +511,23 @@ var PlayController = /** @class */ (function (_super) {
         property(cc.Label)
     ], PlayController.prototype, "lvLabel", void 0);
     __decorate([
+        property(cc.ProgressBar)
+    ], PlayController.prototype, "progress", void 0);
+    __decorate([
+        property(cc.Sprite)
+    ], PlayController.prototype, "bar", void 0);
+    __decorate([
         property(cc.Label)
-    ], PlayController.prototype, "scoreLabel", void 0);
+    ], PlayController.prototype, "powerLabel", void 0);
+    __decorate([
+        property(cc.Label)
+    ], PlayController.prototype, "moneyLabel", void 0);
+    __decorate([
+        property(cc.Node)
+    ], PlayController.prototype, "headNode", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], PlayController.prototype, "headIcon", void 0);
     __decorate([
         property(cc.Node)
     ], PlayController.prototype, "guideNode0", void 0);
@@ -429,7 +578,13 @@ var PlayController = /** @class */ (function (_super) {
     ], PlayController.prototype, "helpCountLabel", void 0);
     __decorate([
         property(cc.Node)
+    ], PlayController.prototype, "ruleNode", void 0);
+    __decorate([
+        property(cc.Node)
     ], PlayController.prototype, "nextNode", void 0);
+    __decorate([
+        property(cc.Prefab)
+    ], PlayController.prototype, "flyScoreNode", void 0);
     PlayController = __decorate([
         ccclass
     ], PlayController);

@@ -57,7 +57,7 @@ var ChangeMode = /** @class */ (function (_super) {
             this.spring3.node.opacity = 0;
             this.spring4.node.opacity = 255;
             this.spring5.node.opacity = 0;
-            this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学渣";
+            //this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学渣";
         }
         else if (mode == "1") {
             this.spring0.node.opacity = 255;
@@ -66,7 +66,7 @@ var ChangeMode = /** @class */ (function (_super) {
             this.spring3.node.opacity = 255;
             this.spring4.node.opacity = 255;
             this.spring5.node.opacity = 0;
-            this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学霸";
+            //this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学霸";
         }
         else if (mode == "2") {
             this.spring0.node.opacity = 255;
@@ -75,7 +75,7 @@ var ChangeMode = /** @class */ (function (_super) {
             this.spring3.node.opacity = 0;
             this.spring4.node.opacity = 0;
             this.spring5.node.opacity = 255;
-            this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学神";
+            //this.modeButton.node.getChildByName("Label").getComponent(cc.Label).string = "学神";
         }
     };
     ChangeMode.prototype.closeModeNodeAction = function (event) {

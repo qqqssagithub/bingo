@@ -10,6 +10,8 @@
 
 const { ccclass, property } = cc._decorator;
 
+import Platform from "../Game/Platform/Platform"
+
 @ccclass
 export default class UserManager extends cc.Component {
 
@@ -19,6 +21,26 @@ export default class UserManager extends cc.Component {
 
     start() {
 
+    }
+
+    setUserInfo(info) {
+        if (info.length == 2) {
+            cc.sys.localStorage.setItem('nickName', info[0]);
+            cc.sys.localStorage.setItem('avatarUrl', info[1]);
+        }
+    }
+    getUserInfo() {
+        var nickName = "";
+        let value_nickName = cc.sys.localStorage.getItem('nickName');
+        if (value_nickName != null && value_nickName != undefined && value_nickName != "") {
+            nickName = value_nickName;
+        }
+        var avatarUrl = "";
+        let value_avatarUrl = cc.sys.localStorage.getItem('avatarUrl');
+        if (value_avatarUrl != null && value_avatarUrl != undefined && value_avatarUrl != "") {
+            avatarUrl = value_avatarUrl;
+        }
+        return [nickName, avatarUrl];
     }
 
     initGuide() {
@@ -39,6 +61,7 @@ export default class UserManager extends cc.Component {
     }
 
     setTotalScore(totalScore) {
+        Platform.updateScore(totalScore);
         cc.sys.localStorage.setItem('totalScore', totalScore);
     }
     getTotalScore() {
@@ -47,29 +70,40 @@ export default class UserManager extends cc.Component {
         if (value != null && value != undefined && value != "") {
             totalScore = value;
         }
-        //return "193";
         return parseInt(totalScore);
     }
 
     getLv() {
         var totalScore = this.getTotalScore();
-        return Math.floor(totalScore / 100);
+        return Math.floor(totalScore / 10);
     }
-    getScore() {
+    getProgress() {
         var totalScore = this.getTotalScore();
-        return totalScore % 100;
+        return totalScore % 10 / 10;
     }
 
-    setHelpCount(count) {
-        cc.sys.localStorage.setItem('helpCount', count);
+    setPower(power) {
+        cc.sys.localStorage.setItem('power', power);
     }
-    getHelpCount() {
-        var count = "0";
-        let value = cc.sys.localStorage.getItem('helpCount');
+    getPower() {
+        var power = "10";
+        let value = cc.sys.localStorage.getItem('power');
         if (value != null && value != undefined && value != "") {
-            count = value;
+            power = value;
         }
-        return count;
+        return parseInt(power);
+    }
+
+    setMoney(money) {
+        cc.sys.localStorage.setItem('money', money);
+    }
+    getMoney() {
+        var money = "0";
+        let value = cc.sys.localStorage.getItem('money');
+        if (value != null && value != undefined && value != "") {
+            money = value;
+        }
+        return parseInt(money);
     }
 
     setGameMode(mode) {
