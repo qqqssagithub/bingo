@@ -35,7 +35,7 @@ var ScrollerItem = /** @class */ (function (_super) {
     };
     ScrollerItem.prototype.start = function () {
         var _this = this;
-        this.node.runAction(cc.sequence(cc.moveTo(this.movingTime, cc.v2(-320, this.node.position.y)), cc.callFunc(function () {
+        this.node.runAction(cc.sequence(cc.moveTo(this.movingTime, cc.v2(-370, this.node.position.y)), cc.callFunc(function () {
             _this.isStop = true;
         }, this)));
     };

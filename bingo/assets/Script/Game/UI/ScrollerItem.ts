@@ -39,7 +39,7 @@ export default class ScrollerItem extends cc.Component {
     }
 
     start() {
-        this.node.runAction(cc.sequence(cc.moveTo(this.movingTime, cc.v2(-320, this.node.position.y)), cc.callFunc(() => {
+        this.node.runAction(cc.sequence(cc.moveTo(this.movingTime, cc.v2(-370, this.node.position.y)), cc.callFunc(() => {
             this.isStop = true;
         }, this)));
     }

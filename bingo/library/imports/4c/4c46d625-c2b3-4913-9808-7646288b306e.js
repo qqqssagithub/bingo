@@ -82,7 +82,7 @@ var UserManager = /** @class */ (function (_super) {
         cc.sys.localStorage.setItem('power', power);
     };
     UserManager.prototype.getPower = function () {
-        var power = "10";
+        var power = "0";
         var value = cc.sys.localStorage.getItem('power');
         if (value != null && value != undefined && value != "") {
             power = value;

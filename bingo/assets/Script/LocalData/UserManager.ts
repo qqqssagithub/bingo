@@ -86,7 +86,7 @@ export default class UserManager extends cc.Component {
         cc.sys.localStorage.setItem('power', power);
     }
     getPower() {
-        var power = "10";
+        var power = "0";
         let value = cc.sys.localStorage.getItem('power');
         if (value != null && value != undefined && value != "") {
             power = value;

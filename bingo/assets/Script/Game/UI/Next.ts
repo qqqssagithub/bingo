@@ -63,7 +63,7 @@ export default class Next extends cc.Component {
     closeSelfAction(event) {
         this.successNode.opacity = 0;
         this.failureNode.opacity = 0;
-        this.node.setPosition(1407, 480);
+        this.node.setPosition(1902, 667);
     }
 
     shareAction(event) {
@@ -74,7 +74,7 @@ export default class Next extends cc.Component {
             }
             self.successNode.opacity = 0;
             self.failureNode.opacity = 0;
-            self.node.setPosition(1407, 480);
+            self.node.setPosition(1902, 667);
         });
     }
     // update (dt) {}

@@ -106,6 +106,10 @@ export default class PlayController extends cc.Component {
     @property(cc.Node)
     nextNode = null;
 
+    /******* 没体力 *******/
+    @property(cc.Node)
+    noPowerNode = null;
+
     @property(cc.Prefab)
     flyScoreNode = null;
     intervalLine = 0;
@@ -189,7 +193,7 @@ export default class PlayController extends cc.Component {
         if (this.intervalNum) {
             clearInterval(this.intervalNum)
         }
-        this.bingoItemMaskNode.setPosition(-240, -240);
+        this.bingoItemMaskNode.setPosition(-270, -270);
     }
 
     refreshUI() {
@@ -265,7 +269,7 @@ export default class PlayController extends cc.Component {
             return;
         }
         var scrollerItem = cc.instantiate(this.scrollerItem);
-        scrollerItem.setPosition(320, 0);
+        scrollerItem.setPosition(370, 0);
         this.scrollerItemNode.addChild(scrollerItem);
         var scrollerItemScript = scrollerItem.getComponent("ScrollerItem");
         var content = this.randomData[this.scrollerItemCount];
@@ -291,11 +295,15 @@ export default class PlayController extends cc.Component {
         }
         if (this.isBeginGame == 1) { //准备就绪
             var power = parseInt(this.user.getPower());
+            if (power <= 0) {
+                this.noPowerNode.setPosition(375, 667);
+                return;
+            }
             power -= 2;
             this.user.setPower(power);
             this.powerLabel.string = power;
 
-            this.bingoItemMaskNode.setPosition(-240, 526);
+            this.bingoItemMaskNode.setPosition(-270, 600);
             this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "放弃";
             this.isBeginGame = 2;
             // this.modeButton.interactable = false;
@@ -318,7 +326,7 @@ export default class PlayController extends cc.Component {
         let s0 = "+1XP";
         let s = cc.instantiate(this.flyScoreNode);
         let pos0 = item.parent.convertToWorldSpaceAR(item.position);
-        let pos1 = cc.v2(126, 865);
+        let pos1 = cc.v2(181, 1190);
         s.setPosition(pos0.x, pos0.y);
         s.getComponent(cc.Label).string = s0;
         this.node.addChild(s);
@@ -427,7 +435,7 @@ export default class PlayController extends cc.Component {
     }
 
     bingo() {
-        this.bingoItemMaskNode.setPosition(-240, -240);
+        this.bingoItemMaskNode.setPosition(-270, -270);
         
         var power = parseInt(this.user.getPower());
         power += 2;
@@ -438,7 +446,7 @@ export default class PlayController extends cc.Component {
         this.user.setMoney(money);
         this.moneyLabel.string = money;
 
-        this.nextNode.setPosition(270, 480);
+        this.nextNode.setPosition(375, 667);
         this.isBeginGame = 3;
         if (this.intervalNum) {
             clearInterval(this.intervalNum)
@@ -476,7 +484,7 @@ export default class PlayController extends cc.Component {
                 bingoItemScript.setError();
             }
         });
-        this.nextNode.setPosition(270, 480);
+        this.nextNode.setPosition(375, 667);
         var nextNodeScript = this.nextNode.getComponent("Next");
         nextNodeScript.setData(isAllTrue);
 
@@ -490,10 +498,10 @@ export default class PlayController extends cc.Component {
     }
 
     moveRuleAction() {
-        if (this.ruleNode.position.x < 835) {
-            this.ruleNode.setPosition(835, 1495);
+        if (this.ruleNode.position.y < 2052) {
+            this.ruleNode.setPosition(375, 2052);
         } else {
-            this.ruleNode.setPosition(270, 480);
+            this.ruleNode.setPosition(375, 667);
         }
     }
 
@@ -509,7 +517,7 @@ export default class PlayController extends cc.Component {
             }
             if (this.gameTime >= spawningTime_temp * (this.randomCount - 1) + movingTime_temp) {
                 //this.bingoAction(null);
-                this.nextNode.setPosition(270, 480);
+                this.nextNode.setPosition(375, 667);
                 this.isBeginGame = 3;
                 if (this.intervalNum) {
                     clearInterval(this.intervalNum)
@@ -536,6 +544,9 @@ export default class PlayController extends cc.Component {
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
+            if (this.noPowerNode.position.x > 0) {
+                this.moveNoPowerNodeAction();
+            }
         });
     }
 
@@ -571,5 +582,9 @@ export default class PlayController extends cc.Component {
         // } else if (mode == "1" && this.currentHelpCount >= 2) {
         //     this.helpButton.interactable = false;
         // }
+    }
+
+    moveNoPowerNodeAction() {
+        this.noPowerNode.setPosition(-527, 2052);
     }
 }

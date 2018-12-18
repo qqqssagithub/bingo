@@ -59,7 +59,7 @@ var Next = /** @class */ (function (_super) {
     Next.prototype.closeSelfAction = function (event) {
         this.successNode.opacity = 0;
         this.failureNode.opacity = 0;
-        this.node.setPosition(1407, 480);
+        this.node.setPosition(1902, 667);
     };
     Next.prototype.shareAction = function (event) {
         var self = this;
@@ -69,7 +69,7 @@ var Next = /** @class */ (function (_super) {
             }
             self.successNode.opacity = 0;
             self.failureNode.opacity = 0;
-            self.node.setPosition(1407, 480);
+            self.node.setPosition(1902, 667);
         });
     };
     __decorate([
