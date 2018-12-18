@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "tongyong_bg",
+    "texture": "1dcf2dfc-70eb-4e31-9897-c5c0b48bee6c",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      136,
+      141
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      136,
+      141
+    ],
+    "capInsets": [
+      49,
+      52,
+      57,
+      65
+    ]
+  }
+}
