@@ -1,55 +1,53 @@
-2018-12-19T04:31:37.366Z - normal: Load ~/.CocosCreator/settings.json
-2018-12-19T04:31:37.370Z - normal: checking language setting...
-2018-12-19T04:31:37.370Z - normal: Language: zh
-2018-12-19T04:31:39.145Z - success: protocol editor-framework registered
-2018-12-19T04:31:39.145Z - success: protocol app registered
-2018-12-19T04:31:39.145Z - success: protocol theme registered
-2018-12-19T04:31:39.145Z - success: protocol packages registered
-2018-12-19T04:31:39.145Z - success: protocol unpack registerred
-2018-12-19T04:31:39.145Z - success: protocol disable-commonjs registerred
-2018-12-19T04:31:39.244Z - normal: connected!
-2018-12-19T04:31:39.246Z - normal: Check project C:\Users\chen\Documents\bingo\bingo1\bingo
-2018-12-19T04:31:39.248Z - normal: Initializing Cocos2d
-2018-12-19T04:31:39.488Z - normal: Initializing Asset Database
-2018-12-19T04:31:39.523Z - success: protocol uuid registerred
-2018-12-19T04:31:39.523Z - success: protocol db registerred
-2018-12-19T04:31:39.523Z - success: protocol thumbnail registerred
-2018-12-19T04:31:39.523Z - normal: Loading editor/builtin packages
-2018-12-19T04:31:39.541Z - success: anysdk loaded
-2018-12-19T04:31:39.654Z - success: assets loaded
-2018-12-19T04:31:39.656Z - success: builder loaded
-2018-12-19T04:31:39.658Z - success: cocos-analytics loaded
-2018-12-19T04:31:39.661Z - success: console loaded
-2018-12-19T04:31:39.691Z - success: fb-instant-games loaded
-2018-12-19T04:31:39.694Z - success: hierarchy loaded
-2018-12-19T04:31:39.700Z - success: inspector loaded
-2018-12-19T04:31:39.702Z - success: keystore loaded
-2018-12-19T04:31:39.704Z - success: node-library loaded
-2018-12-19T04:31:39.706Z - success: package-asset loaded
-2018-12-19T04:31:39.708Z - success: preferences loaded
-2018-12-19T04:31:39.709Z - success: project-exporter loaded
-2018-12-19T04:31:39.723Z - success: project-importer loaded
-2018-12-19T04:31:39.724Z - success: project-settings loaded
-2018-12-19T04:31:39.726Z - success: ui-kit loaded
-2018-12-19T04:31:39.727Z - success: ui-grid loaded
-2018-12-19T04:31:39.730Z - success: scene loaded
-2018-12-19T04:31:39.730Z - success: sprite-editor loaded
-2018-12-19T04:31:39.733Z - success: store loaded
-2018-12-19T04:31:39.737Z - success: timeline loaded
-2018-12-19T04:31:39.737Z - normal: Loading builtin packages
-2018-12-19T04:31:39.739Z - success: asset-db-debugger loaded
-2018-12-19T04:31:39.740Z - success: code-editor loaded
-2018-12-19T04:31:39.740Z - success: color-picker loaded
-2018-12-19T04:31:39.743Z - success: package-manager loaded
-2018-12-19T04:31:39.748Z - success: sdkbox loaded
-2018-12-19T04:31:39.750Z - success: tester loaded
-2018-12-19T04:31:39.752Z - success: ui-kit-preview-extra loaded
-2018-12-19T04:31:39.753Z - success: ui-kit-preview loaded
-2018-12-19T04:31:39.755Z - success: ui-tree loaded
-2018-12-19T04:31:40.880Z - normal: Initializing project C:\Users\chen\Documents\bingo\bingo1\bingo
-2018-12-19T04:31:40.884Z - normal: Loading packages
-2018-12-19T04:31:40.888Z - normal: Watching packages
-2018-12-19T04:31:40.890Z - normal: Run Application
-2018-12-19T04:31:43.295Z - success: preview server running at http://localhost:7456
-2018-12-19T04:31:47.170Z - normal: 1.9.1
-2018-12-19T04:56:27.610Z - info: shutdown preview server
+2018-12-24T16:18:45.981Z - normal: Load ~/.CocosCreator/settings.json
+2018-12-24T16:18:45.986Z - normal: checking language setting...
+2018-12-24T16:18:45.986Z - normal: Language: zh
+2018-12-24T16:18:49.682Z - success: protocol editor-framework registered
+2018-12-24T16:18:49.682Z - success: protocol app registered
+2018-12-24T16:18:49.682Z - success: protocol theme registered
+2018-12-24T16:18:49.682Z - success: protocol packages registered
+2018-12-24T16:18:49.683Z - success: protocol unpack registerred
+2018-12-24T16:18:49.683Z - success: protocol disable-commonjs registerred
+2018-12-24T16:18:49.756Z - normal: connected!
+2018-12-24T16:18:49.757Z - normal: Check project /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-24T16:18:49.759Z - normal: Initializing Cocos2d
+2018-12-24T16:18:50.690Z - normal: Initializing Asset Database
+2018-12-24T16:18:50.826Z - success: protocol uuid registerred
+2018-12-24T16:18:50.826Z - success: protocol db registerred
+2018-12-24T16:18:50.826Z - success: protocol thumbnail registerred
+2018-12-24T16:18:50.827Z - normal: Loading editor/builtin packages
+2018-12-24T16:18:50.929Z - success: anysdk loaded
+2018-12-24T16:18:51.106Z - success: assets loaded
+2018-12-24T16:18:51.110Z - success: builder loaded
+2018-12-24T16:18:51.113Z - success: cocos-analytics loaded
+2018-12-24T16:18:51.118Z - success: console loaded
+2018-12-24T16:18:51.153Z - success: fb-instant-games loaded
+2018-12-24T16:18:51.158Z - success: hierarchy loaded
+2018-12-24T16:18:51.163Z - success: inspector loaded
+2018-12-24T16:18:51.165Z - success: keystore loaded
+2018-12-24T16:18:51.174Z - success: node-library loaded
+2018-12-24T16:18:51.177Z - success: package-asset loaded
+2018-12-24T16:18:51.180Z - success: preferences loaded
+2018-12-24T16:18:51.188Z - success: project-exporter loaded
+2018-12-24T16:18:51.219Z - success: project-importer loaded
+2018-12-24T16:18:51.223Z - success: project-settings loaded
+2018-12-24T16:18:51.226Z - success: ui-kit loaded
+2018-12-24T16:18:51.271Z - success: ui-grid loaded
+2018-12-24T16:18:51.288Z - success: scene loaded
+2018-12-24T16:18:51.289Z - success: sprite-editor loaded
+2018-12-24T16:18:51.294Z - success: store loaded
+2018-12-24T16:18:51.301Z - success: timeline loaded
+2018-12-24T16:18:51.301Z - normal: Loading builtin packages
+2018-12-24T16:18:51.314Z - success: asset-db-debugger loaded
+2018-12-24T16:18:51.315Z - success: color-picker loaded
+2018-12-24T16:18:51.319Z - success: package-manager loaded
+2018-12-24T16:18:51.328Z - success: sdkbox loaded
+2018-12-24T16:18:51.334Z - success: tester loaded
+2018-12-24T16:18:51.338Z - success: ui-kit-preview-extra loaded
+2018-12-24T16:18:51.341Z - success: ui-kit-preview loaded
+2018-12-24T16:18:51.369Z - success: ui-tree loaded
+2018-12-24T16:18:53.368Z - normal: Initializing project /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-24T16:18:53.369Z - normal: Loading packages
+2018-12-24T16:18:53.375Z - normal: Watching packages
+2018-12-24T16:18:53.377Z - normal: Run Application
+2018-12-24T16:18:55.332Z - success: preview server running at http://localhost:7456
+2018-12-24T16:19:05.742Z - normal: 1.9.1

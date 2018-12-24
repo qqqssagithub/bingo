@@ -5,10 +5,10 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -8,
-      "y": -8,
+      "x": 0,
+      "y": 23,
       "width": 1936,
-      "height": 1176,
+      "height": 1057,
       "layout": {
         "children": [
           {
@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 558.984375,
+                "height": 515,
                 "type": "panel",
-                "width": 284
+                "width": 286
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 486,
+                "height": 448,
                 "type": "panel",
-                "width": 284
+                "width": 286
               }
             ],
-            "height": 1048,
+            "height": 966,
             "type": "dock-v",
-            "width": 284
+            "width": 286
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 776.984375,
+                "height": 716,
                 "type": "panel",
-                "width": 940
+                "width": 948
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 268,
+                "height": 247,
                 "type": "panel",
-                "width": 940
+                "width": 948
               }
             ],
-            "height": 1048,
+            "height": 966,
             "type": "dock-v",
-            "width": 940
+            "width": 948
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 1048,
+            "height": 966,
             "type": "panel",
-            "width": 684
+            "width": 690
           }
         ],
         "type": "dock-h"
