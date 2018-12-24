@@ -5,4 +5,4 @@ require('libs/wx-downloader.js');
 wxDownloader.REMOTE_SERVER_ROOT = "";
 wxDownloader.SUBCONTEXT_ROOT = "";
 require('src/settings.61828');
-require('main.6c464');
+require('main.ff227');

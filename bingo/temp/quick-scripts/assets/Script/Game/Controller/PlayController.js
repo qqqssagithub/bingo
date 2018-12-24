@@ -385,14 +385,13 @@ var PlayController = /** @class */ (function (_super) {
         money += 100;
         this.user.setMoney(money);
         this.moneyLabel.string = money;
-        this.nextNode.setPosition(375, 667);
         this.isBeginGame = 3;
         if (this.intervalNum) {
             clearInterval(this.intervalNum);
         }
         this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
         this.lineCount = 0;
-        this.intervalLine = setInterval(this.lineAni.bind(this), 80);
+        this.intervalLine = setInterval(this.lineAni.bind(this), 150);
         // this.answerLine.forEach(element => {
         //     var bingoItemScript = element.getComponent("BingoItem");
         //     bingoItemScript.setError();
@@ -411,6 +410,7 @@ var PlayController = /** @class */ (function (_super) {
             clearInterval(this.intervalLine);
             var nextNodeScript = this.nextNode.getComponent("Next");
             nextNodeScript.setData(true);
+            this.nextNode.setPosition(375, 667);
         }
     };
     PlayController.prototype.bingoAction = function (event) {

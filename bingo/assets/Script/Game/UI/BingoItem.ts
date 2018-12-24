@@ -64,12 +64,13 @@ export default class BingoItem extends cc.Component {
     }
 
     private onClickScreen(event) {
+        //测试
         // this.isTrue = true;
         // this.ragBg.opacity = 255;
         // if (this.callback && this.point) {
         //     this.callback(this.point.x, this.point.y);
         // }
-        // return;
+
         //必须正确
         if (this.ragBg.opacity == 255) {
             return;
@@ -88,33 +89,32 @@ export default class BingoItem extends cc.Component {
                 this.callback(this.point.x, this.point.y);
             }
         }
-        return;
 
         //不正确也可以点
-        if (this.ragBg.opacity == 255) {
-            this.isTrue = false;
-            this.ragBg.opacity = 0;
-            if (this.callback && this.point) {
-                this.callback(this.point.x, this.point.y);
-            }
-            return;
-        }
-        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
-        for (let i = 0; i < this.contrastItems.length; i++) {
-            const scrollerItem = this.contrastItems[i];
-            var scrollerItemScript = scrollerItem.getComponent("ScrollerItem");
-            if (this.user.getGameMode() == "2" && scrollerItemScript.isStop) {
-                continue;
-            }
-            if (this.itemLabel.string == scrollerItemScript.getAnswer()) {
-                this.isTrue = true;
-                break;
-            }
-        }
-        this.ragBg.opacity = 255;
-        if (this.callback && this.point) {
-            this.callback(this.point.x, this.point.y);
-        }
+        // if (this.ragBg.opacity == 255) {
+        //     this.isTrue = false;
+        //     this.ragBg.opacity = 0;
+        //     if (this.callback && this.point) {
+        //         this.callback(this.point.x, this.point.y);
+        //     }
+        //     return;
+        // }
+        // this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+        // for (let i = 0; i < this.contrastItems.length; i++) {
+        //     const scrollerItem = this.contrastItems[i];
+        //     var scrollerItemScript = scrollerItem.getComponent("ScrollerItem");
+        //     if (this.user.getGameMode() == "2" && scrollerItemScript.isStop) {
+        //         continue;
+        //     }
+        //     if (this.itemLabel.string == scrollerItemScript.getAnswer()) {
+        //         this.isTrue = true;
+        //         break;
+        //     }
+        // }
+        // this.ragBg.opacity = 255;
+        // if (this.callback && this.point) {
+        //     this.callback(this.point.x, this.point.y);
+        // }
     }
 
     // update (dt) {}

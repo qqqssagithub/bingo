@@ -459,11 +459,6 @@
     "meta": 1545405888000,
     "relativePath": "Script/Game/Platform/Platform.ts"
   },
-  "bb3967b9-13d7-461a-be30-75e3f1372da5": {
-    "asset": 1545405762000,
-    "meta": 1545405888000,
-    "relativePath": "Script/Game/UI/BingoItem.ts"
-  },
   "70c32422-6bc4-48da-87c8-867dbe0dc607": {
     "asset": 1545405762000,
     "meta": 1545405887000,
@@ -584,11 +579,6 @@
     "meta": 1545405762000,
     "relativePath": "resources/LocalData/parameter.csv"
   },
-  "d52ee90a-d6b6-4643-ac3d-c51debfb2800": {
-    "asset": 1545405762000,
-    "meta": 1545405888000,
-    "relativePath": "Script/Game/Controller/PlayController.ts"
-  },
   "e6c3d7c2-ab16-46f8-9031-25ffdfc949f5": {
     "asset": 1545405762000,
     "meta": 1545405887000,
@@ -598,5 +588,15 @@
     "asset": 1545406046000,
     "meta": 1545406046000,
     "relativePath": "resources/LocalData/bingo.csv"
+  },
+  "d52ee90a-d6b6-4643-ac3d-c51debfb2800": {
+    "asset": 1545671017000,
+    "meta": 1545671065000,
+    "relativePath": "Script/Game/Controller/PlayController.ts"
+  },
+  "bb3967b9-13d7-461a-be30-75e3f1372da5": {
+    "asset": 1545671061000,
+    "meta": 1545671065000,
+    "relativePath": "Script/Game/UI/BingoItem.ts"
   }
 }

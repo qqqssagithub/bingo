@@ -155,7 +155,7 @@
         }
         else
         {
-            var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.25cec.js';
+            var bundledScript = settings.debug ? 'src/project.dev.js' : 'src/project.aa83d.js';
             if (jsList) {
                 jsList = jsList.map(function (x) {
                     return 'src/' + x;
