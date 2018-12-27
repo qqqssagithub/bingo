@@ -23,6 +23,17 @@ var UserManager = /** @class */ (function (_super) {
     // onLoad () {}
     UserManager.prototype.start = function () {
     };
+    UserManager.prototype.setDay = function (day) {
+        cc.sys.localStorage.setItem('day', day);
+    };
+    UserManager.prototype.getDay = function () {
+        var day = "-1";
+        var value_day = cc.sys.localStorage.getItem('day');
+        if (value_day != null && value_day != undefined && value_day != "") {
+            day = value_day;
+        }
+        return parseInt(day);
+    };
     UserManager.prototype.setUserInfo = function (info) {
         if (info.length == 2) {
             cc.sys.localStorage.setItem('nickName', info[0]);

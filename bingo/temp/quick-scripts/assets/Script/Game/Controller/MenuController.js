@@ -28,12 +28,22 @@ var MenuController = /** @class */ (function (_super) {
         _this.moneyLabel = null;
         _this.localData = null;
         _this.rankData = null;
+        _this.noPowerNode = null;
         return _this;
-        // update (dt) {}
     }
     MenuController.prototype.onLoad = function () {
         var _this = this;
         this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+        var date = new Date();
+        var nowDay = date.getDate();
+        var day = this.user.getDay();
+        if (nowDay != day) {
+            this.user.setDay(nowDay);
+            var power = this.user.getPower();
+            if (power < 20) {
+                this.user.setPower(20);
+            }
+        }
         Platform_1.default.getUserInfo(function (error, data) {
             if (error == null && data.userInfo != undefined) {
                 var userInfo = data.userInfo;
@@ -89,6 +99,11 @@ var MenuController = /** @class */ (function (_super) {
         this.addPower();
     };
     MenuController.prototype.beginAction = function () {
+        var power = parseInt(this.user.getPower());
+        if (power <= 0) {
+            this.noPowerNode.setPosition(0, 0);
+            return;
+        }
         cc.director.loadScene("PlayScene");
     };
     MenuController.prototype.rankAction = function () {
@@ -98,13 +113,21 @@ var MenuController = /** @class */ (function (_super) {
         this.addPower();
     };
     MenuController.prototype.addPower = function () {
+        var _this = this;
         var self = this;
         Platform_1.default.share(0, function () {
             var power = parseInt(self.user.getPower());
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
+            if (_this.noPowerNode.position.x <= 0) {
+                _this.moveNoPowerNodeAction();
+            }
         });
+    };
+    // update (dt) {}
+    MenuController.prototype.moveNoPowerNodeAction = function () {
+        this.noPowerNode.setPosition(780, 0);
     };
     __decorate([
         property(cc.Prefab)
@@ -127,6 +150,9 @@ var MenuController = /** @class */ (function (_super) {
     __decorate([
         property(cc.Label)
     ], MenuController.prototype, "moneyLabel", void 0);
+    __decorate([
+        property(cc.Node)
+    ], MenuController.prototype, "noPowerNode", void 0);
     MenuController = __decorate([
         ccclass
     ], MenuController);

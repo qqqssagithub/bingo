@@ -35,9 +35,21 @@ export default class MenuController extends cc.Component {
     localData = null;
     rankData = null;
 
+    @property(cc.Node)
+    noPowerNode = null;
+
     onLoad() {
         this.user = cc.instantiate(this.userManager).getComponent('UserManager');
-
+        let date = new Date();
+        let nowDay = date.getDate()
+        let day = this.user.getDay();
+        if (nowDay != day) {
+            this.user.setDay(nowDay);
+            let power = this.user.getPower();
+            if (power < 20) {
+                this.user.setPower(20);
+            }
+        }
         Platform.getUserInfo((error, data) => {
             if (error == null && data.userInfo != undefined) {
                 const userInfo = data.userInfo;
@@ -101,6 +113,12 @@ export default class MenuController extends cc.Component {
     }
 
     beginAction() {
+        var power = parseInt(this.user.getPower());
+        if (power <= 0) {
+            this.noPowerNode.setPosition(0, 0);
+            return;
+        }
+
         cc.director.loadScene("PlayScene");
     }
 
@@ -119,7 +137,14 @@ export default class MenuController extends cc.Component {
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
+            if (this.noPowerNode.position.x <= 0) {
+                this.moveNoPowerNodeAction();
+            }
         });
     }
     // update (dt) {}
+
+    moveNoPowerNodeAction() {
+        this.noPowerNode.setPosition(780, 0);
+    }
 }

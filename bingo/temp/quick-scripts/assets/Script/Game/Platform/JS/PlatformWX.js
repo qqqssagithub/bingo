@@ -45,7 +45,7 @@ module.exports = {
             //let shareData = gameApiCallback.shareButtonInfo();
 
             return {
-                title: '好学生就是我，成语量超过了80%的微信好友。',
+                title: '猫鼠大战一触即发，谁是最终王者！',
                 imageUrl: 'images/share.png',
                 success: function success(res) {}
             };
@@ -70,7 +70,7 @@ module.exports = {
             // title: shareData.title,
             // imageUrl: shareData.imageUrl,
             // query: shareData.query,
-            title: '好学生就是我，成语量超过了80%的微信好友。',
+            title: '猫鼠大战一触即发，谁是最终王者！',
             imageUrl: 'images/share.png',
             success: function success(res) {
                 if (cb) {

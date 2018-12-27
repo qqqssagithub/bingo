@@ -55,8 +55,8 @@
     "relativePath": "resources"
   },
   "d2a02931-dd00-44a0-96c4-324f47342405": {
-    "asset": 1545406554000,
-    "meta": 1545406554000,
+    "asset": 1545928999000,
+    "meta": 1545928999000,
     "relativePath": "Scene/PlayScene.fire"
   },
   "e3d6f608-eb2e-4a5f-9c42-5cb66eae0751": {
@@ -220,8 +220,8 @@
     "relativePath": "resources/Prefabs/HeadIcon.prefab"
   },
   "eaa34b67-672c-46cb-914a-22ff641486a7": {
-    "asset": 1545405762000,
-    "meta": 1545405887000,
+    "asset": 1545928812000,
+    "meta": 1545928812000,
     "relativePath": "Scene/MenuScene.fire"
   },
   "077da1dd-6f7a-4e30-879a-25c979ece7f1": {
@@ -243,16 +243,6 @@
     "asset": 1545405762000,
     "meta": 1545405887000,
     "relativePath": "resources/Images/progress.png"
-  },
-  "cd9a2f3c-f43f-4a06-9d6b-67354cfcc73b": {
-    "asset": 1545405762000,
-    "meta": 1545405888000,
-    "relativePath": "Script/Game/Platform/JS/PlatformWX.js"
-  },
-  "255798f3-a656-4766-92d7-2044b086603f": {
-    "asset": 1545405762000,
-    "meta": 1545405888000,
-    "relativePath": "Script/Game/Controller/MenuController.ts"
   },
   "107902f0-6ed6-47b8-8cfa-1fc89a7e44fe": {
     "asset": 1545405762000,
@@ -559,20 +549,10 @@
     "meta": 1545405887000,
     "relativePath": "resources/Images/weiwancheng.png"
   },
-  "2ac612fd-0e74-467e-b4dc-9c477521cffe": {
-    "asset": 1545405762000,
-    "meta": 1545405888000,
-    "relativePath": "Script/Game/UI/Next.ts"
-  },
   "77baa1a1-0a8f-4e36-bf7d-659890288170": {
     "asset": 1545405762000,
     "meta": 1545405888000,
     "relativePath": "Script/Game/UI/ScrollerItem.ts"
-  },
-  "4c46d625-c2b3-4913-9808-7646288b306e": {
-    "asset": 1545405762000,
-    "meta": 1545405889000,
-    "relativePath": "Script/LocalData/UserManager.ts"
   },
   "59375506-a56f-4dc3-b1ff-c7c09ca45885": {
     "asset": 1545405762000,
@@ -584,19 +564,39 @@
     "meta": 1545405887000,
     "relativePath": "resources/Images/btn_bg.png"
   },
+  "bb3967b9-13d7-461a-be30-75e3f1372da5": {
+    "asset": 1545755298000,
+    "meta": 1545755300000,
+    "relativePath": "Script/Game/UI/BingoItem.ts"
+  },
+  "2ac612fd-0e74-467e-b4dc-9c477521cffe": {
+    "asset": 1545755599000,
+    "meta": 1545755700000,
+    "relativePath": "Script/Game/UI/Next.ts"
+  },
+  "4c46d625-c2b3-4913-9808-7646288b306e": {
+    "asset": 1545928660000,
+    "meta": 1545928707000,
+    "relativePath": "Script/LocalData/UserManager.ts"
+  },
+  "255798f3-a656-4766-92d7-2044b086603f": {
+    "asset": 1545928810000,
+    "meta": 1545928811000,
+    "relativePath": "Script/Game/Controller/MenuController.ts"
+  },
+  "d52ee90a-d6b6-4643-ac3d-c51debfb2800": {
+    "asset": 1545928986000,
+    "meta": 1545928988000,
+    "relativePath": "Script/Game/Controller/PlayController.ts"
+  },
   "321ba68e-e42d-4754-b824-3326a35d08c2": {
-    "asset": 1545406046000,
+    "asset": 1545929062000,
     "meta": 1545406046000,
     "relativePath": "resources/LocalData/bingo.csv"
   },
-  "d52ee90a-d6b6-4643-ac3d-c51debfb2800": {
-    "asset": 1545671017000,
-    "meta": 1545671065000,
-    "relativePath": "Script/Game/Controller/PlayController.ts"
-  },
-  "bb3967b9-13d7-461a-be30-75e3f1372da5": {
-    "asset": 1545671061000,
-    "meta": 1545671065000,
-    "relativePath": "Script/Game/UI/BingoItem.ts"
+  "cd9a2f3c-f43f-4a06-9d6b-67354cfcc73b": {
+    "asset": 1545929062000,
+    "meta": 1545929252000,
+    "relativePath": "Script/Game/Platform/JS/PlatformWX.js"
   }
 }

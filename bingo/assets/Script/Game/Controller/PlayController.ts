@@ -72,7 +72,17 @@ export default class PlayController extends cc.Component {
     scrollerItem = null;
 
     @property(cc.Button)
+    timeOutButton = null;
+    timeOut = -1;
+
+    @property(cc.Button)
     beginGameButton = null;
+    intervalBegin = 0;
+    countdownNum = 0;
+    @property(cc.Node)
+    countdownNode = null;
+    @property(cc.Label)
+    countdownLabel = null;
     isBeginGame = 0; //0，初始状态；1，准备就绪；2，进行中；3，bingo
     intervalNum = 0;
     gameTime = 0;
@@ -121,14 +131,14 @@ export default class PlayController extends cc.Component {
         this.addHeadIcon();
 
         var nextNodeScript = this.nextNode.getComponent("Next");
-        nextNodeScript.callback = this.nextShareCallback.bind(this);
+        nextNodeScript.callback = this.nextCallback.bind(this);
 
         this.scrollerItems = [];
         this.bingoItems = [];
         this.answerLine = [];
         this.buildCoordinate();
 
-        this.resetGameState();
+        //this.resetGameState();
 
         this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
         // this.localData.parseRank(this.getLvAndScroe, this);
@@ -204,6 +214,8 @@ export default class PlayController extends cc.Component {
         this.randomAnswer = this.localData.answerData;
 
         this.initAnswer();
+
+        this.beginGameAction(null);
     }
 
     initAnswer() {
@@ -303,6 +315,24 @@ export default class PlayController extends cc.Component {
             this.user.setPower(power);
             this.powerLabel.string = power;
 
+            this.intervalBegin = setInterval(this.countdown.bind(this), 1000);
+            this.countdownNum = 5;
+            this.countdownLabel.string = this.countdownNum;
+            this.countdownNode.setPosition(375, 667);
+        } else {
+            this.refreshUI();
+        }
+    }
+
+    countdown() {
+        this.countdownNum--;
+        this.countdownLabel.string = this.countdownNum;
+        if (this.countdownNum == 0) {
+            this.countdownNode.setPosition(-527, 667);
+            if (this.intervalBegin) {
+                clearInterval(this.intervalBegin);
+            }
+
             this.bingoItemMaskNode.setPosition(-270, 600);
             this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "放弃";
             this.isBeginGame = 2;
@@ -317,8 +347,6 @@ export default class PlayController extends cc.Component {
             //     this.helpButton.interactable = true;
             // }
             this.intervalNum = setInterval(this.addScrollerItem.bind(this), 1000 * spawningTime_temp);
-        } else {
-            this.refreshUI();
         }
     }
 
@@ -436,7 +464,7 @@ export default class PlayController extends cc.Component {
 
     bingo() {
         this.bingoItemMaskNode.setPosition(-270, -270);
-        
+
         var power = parseInt(this.user.getPower());
         power += 2;
         this.user.setPower(power);
@@ -550,11 +578,10 @@ export default class PlayController extends cc.Component {
         });
     }
 
-    nextShareCallback() {
+    nextCallback() {
         var power = parseInt(this.user.getPower());
-        power += 2;
-        this.user.setPower(power);
         this.powerLabel.string = power;
+        this.refreshUI()
     }
 
     changeModeAction(event) {
@@ -586,5 +613,14 @@ export default class PlayController extends cc.Component {
 
     moveNoPowerNodeAction() {
         this.noPowerNode.setPosition(-527, 2052);
+    }
+
+    timeOutAction() {
+        // this.timeOut *= -1;
+        // if (this.timeOut == 1) { //暂停
+        //     Game.pause();
+        // } else { //继续
+        //     Game.resume();
+        // }
     }
 }

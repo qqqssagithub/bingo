@@ -27,7 +27,9 @@ var Next = /** @class */ (function (_super) {
         return _this;
         // update (dt) {}
     }
-    // onLoad () {}
+    Next.prototype.onLoad = function () {
+        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+    };
     Next.prototype.start = function () {
     };
     Next.prototype.setData = function (isSuccess) {
@@ -60,16 +62,23 @@ var Next = /** @class */ (function (_super) {
         this.successNode.opacity = 0;
         this.failureNode.opacity = 0;
         this.node.setPosition(1902, 667);
+        if (this.callback) {
+            this.callback();
+        }
     };
     Next.prototype.shareAction = function (event) {
+        var _this = this;
         var self = this;
         Platform_1.default.share(1, function () {
-            if (self.callback) {
-                self.callback();
-            }
+            var power = parseInt(_this.user.getPower());
+            power += 2;
+            _this.user.setPower(power);
             self.successNode.opacity = 0;
             self.failureNode.opacity = 0;
             self.node.setPosition(1902, 667);
+            if (self.callback) {
+                self.callback();
+            }
         });
     };
     __decorate([

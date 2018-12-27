@@ -28,7 +28,9 @@ export default class Next extends cc.Component {
 
     callback: () => void = null
 
-    // onLoad () {}
+    onLoad() {
+        this.user = cc.instantiate(this.userManager).getComponent('UserManager');
+    }
 
     start() {
 
@@ -64,17 +66,23 @@ export default class Next extends cc.Component {
         this.successNode.opacity = 0;
         this.failureNode.opacity = 0;
         this.node.setPosition(1902, 667);
+        if (this.callback) {
+            this.callback();
+        }
     }
 
     shareAction(event) {
         var self = this;
         Platform.share(1, () => {
-            if (self.callback) {
-                self.callback();
-            }
+            var power = parseInt(this.user.getPower());
+            power += 2;
+            this.user.setPower(power);
             self.successNode.opacity = 0;
             self.failureNode.opacity = 0;
             self.node.setPosition(1902, 667);
+            if (self.callback) {
+                self.callback();
+            }
         });
     }
     // update (dt) {}

@@ -48,7 +48,13 @@ var PlayController = /** @class */ (function (_super) {
         _this.movingTime = 0; //移动时间间隔
         _this.scrollerItemNode = null;
         _this.scrollerItem = null;
+        _this.timeOutButton = null;
+        _this.timeOut = -1;
         _this.beginGameButton = null;
+        _this.intervalBegin = 0;
+        _this.countdownNum = 0;
+        _this.countdownNode = null;
+        _this.countdownLabel = null;
         _this.isBeginGame = 0; //0，初始状态；1，准备就绪；2，进行中；3，bingo
         _this.intervalNum = 0;
         _this.gameTime = 0;
@@ -82,12 +88,12 @@ var PlayController = /** @class */ (function (_super) {
         this.getLvAndScroe();
         this.addHeadIcon();
         var nextNodeScript = this.nextNode.getComponent("Next");
-        nextNodeScript.callback = this.nextShareCallback.bind(this);
+        nextNodeScript.callback = this.nextCallback.bind(this);
         this.scrollerItems = [];
         this.bingoItems = [];
         this.answerLine = [];
         this.buildCoordinate();
-        this.resetGameState();
+        //this.resetGameState();
         this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
         // this.localData.parseRank(this.getLvAndScroe, this);
         this.localData.parseParameter(this.getParameter, this);
@@ -155,6 +161,7 @@ var PlayController = /** @class */ (function (_super) {
         this.randomData = this.localData.scrollerData;
         this.randomAnswer = this.localData.answerData;
         this.initAnswer();
+        this.beginGameAction(null);
     };
     PlayController.prototype.initAnswer = function () {
         if (this.randomAnswer.length < this.matrixRow * this.matrixRow) {
@@ -247,6 +254,23 @@ var PlayController = /** @class */ (function (_super) {
             power -= 2;
             this.user.setPower(power);
             this.powerLabel.string = power;
+            this.intervalBegin = setInterval(this.countdown.bind(this), 1000);
+            this.countdownNum = 5;
+            this.countdownLabel.string = this.countdownNum;
+            this.countdownNode.setPosition(375, 667);
+        }
+        else {
+            this.refreshUI();
+        }
+    };
+    PlayController.prototype.countdown = function () {
+        this.countdownNum--;
+        this.countdownLabel.string = this.countdownNum;
+        if (this.countdownNum == 0) {
+            this.countdownNode.setPosition(-527, 667);
+            if (this.intervalBegin) {
+                clearInterval(this.intervalBegin);
+            }
             this.bingoItemMaskNode.setPosition(-270, 600);
             this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "放弃";
             this.isBeginGame = 2;
@@ -261,9 +285,6 @@ var PlayController = /** @class */ (function (_super) {
             //     this.helpButton.interactable = true;
             // }
             this.intervalNum = setInterval(this.addScrollerItem.bind(this), 1000 * spawningTime_temp);
-        }
-        else {
-            this.refreshUI();
         }
     };
     PlayController.prototype.flyScore = function (item) {
@@ -483,11 +504,10 @@ var PlayController = /** @class */ (function (_super) {
             }
         });
     };
-    PlayController.prototype.nextShareCallback = function () {
+    PlayController.prototype.nextCallback = function () {
         var power = parseInt(this.user.getPower());
-        power += 2;
-        this.user.setPower(power);
         this.powerLabel.string = power;
+        this.refreshUI();
     };
     PlayController.prototype.changeModeAction = function (event) {
         if (this.guideNode0.position.x > 0) {
@@ -516,6 +536,14 @@ var PlayController = /** @class */ (function (_super) {
     };
     PlayController.prototype.moveNoPowerNodeAction = function () {
         this.noPowerNode.setPosition(-527, 2052);
+    };
+    PlayController.prototype.timeOutAction = function () {
+        // this.timeOut *= -1;
+        // if (this.timeOut == 1) { //暂停
+        //     Game.pause();
+        // } else { //继续
+        //     Game.resume();
+        // }
     };
     __decorate([
         property(cc.Prefab)
@@ -576,7 +604,16 @@ var PlayController = /** @class */ (function (_super) {
     ], PlayController.prototype, "scrollerItem", void 0);
     __decorate([
         property(cc.Button)
+    ], PlayController.prototype, "timeOutButton", void 0);
+    __decorate([
+        property(cc.Button)
     ], PlayController.prototype, "beginGameButton", void 0);
+    __decorate([
+        property(cc.Node)
+    ], PlayController.prototype, "countdownNode", void 0);
+    __decorate([
+        property(cc.Label)
+    ], PlayController.prototype, "countdownLabel", void 0);
     __decorate([
         property(cc.Button)
     ], PlayController.prototype, "bingoButton", void 0);
