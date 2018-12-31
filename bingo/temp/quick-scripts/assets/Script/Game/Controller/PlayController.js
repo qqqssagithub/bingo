@@ -56,7 +56,6 @@ var PlayController = /** @class */ (function (_super) {
         _this.countdownNode = null;
         _this.countdownLabel = null;
         _this.isBeginGame = 0; //0，初始状态；1，准备就绪；2，进行中；3，bingo
-        _this.intervalNum = 0;
         _this.gameTime = 0;
         _this.scrollerItemCount = 0;
         _this.scrollerItems = null;
@@ -85,7 +84,7 @@ var PlayController = /** @class */ (function (_super) {
     }
     PlayController.prototype.onLoad = function () {
         this.user = cc.instantiate(this.userManager).getComponent('UserManager');
-        this.getLvAndScroe();
+        this.getUserData();
         this.addHeadIcon();
         var nextNodeScript = this.nextNode.getComponent("Next");
         nextNodeScript.callback = this.nextCallback.bind(this);
@@ -95,10 +94,10 @@ var PlayController = /** @class */ (function (_super) {
         this.buildCoordinate();
         //this.resetGameState();
         this.localData = cc.instantiate(this.localDataManager).getComponent('LocalDataManager');
-        // this.localData.parseRank(this.getLvAndScroe, this);
+        // this.localData.parseRank(this.getUserData, this);
         this.localData.parseParameter(this.getParameter, this);
     };
-    PlayController.prototype.getLvAndScroe = function () {
+    PlayController.prototype.getUserData = function () {
         var lv = this.user.getLv();
         var progress = this.user.getProgress();
         var power = this.user.getPower();
@@ -150,10 +149,7 @@ var PlayController = /** @class */ (function (_super) {
         });
         this.scrollerItems.splice(0, this.scrollerItems.length);
         this.answerLine.splice(0, this.answerLine.length);
-        if (this.intervalNum) {
-            clearInterval(this.intervalNum);
-        }
-        this.bingoItemMaskNode.setPosition(-270, -270);
+        this.bingoItemMaskNode.active = true;
     };
     PlayController.prototype.refreshUI = function () {
         this.resetGameState();
@@ -211,7 +207,7 @@ var PlayController = /** @class */ (function (_super) {
         for (var i = 0; i < this.matrixRow; i++) {
             var arr = [];
             for (var j = 0; j < this.matrixRow; j++) {
-                var position = cc.v2(beginX + i * width, beginY + j * width);
+                var position = cc.v2(beginX + i * width - 275, beginY + j * width - 275);
                 arr.push(position);
             }
             this.pointArr.push(arr);
@@ -234,21 +230,18 @@ var PlayController = /** @class */ (function (_super) {
         scrollerItemScript.setData(content, movingTime_temp);
         this.scrollerItemCount++;
         this.scrollerItems.push(scrollerItem);
-        if (this.scrollerItemCount >= this.randomCount && this.intervalNum) {
-            clearInterval(this.intervalNum);
-        }
     };
     PlayController.prototype.beginGameAction = function (event) {
-        if (this.guideNode1.position.x > 0) {
-            this.guideNode1.setPosition(-1425, 480);
-        }
-        if (!this.user.getIsShowGuide1()) {
-            this.user.setIsShowGuide1(true);
-        }
+        // if (this.guideNode1.position.x > 0) {
+        //     this.guideNode1.setPosition(-1425, 480);
+        // }
+        // if (!this.user.getIsShowGuide1()) {
+        //     this.user.setIsShowGuide1(true);
+        // }
         if (this.isBeginGame == 1) { //准备就绪
-            var power = parseInt(this.user.getPower());
+            var power = this.user.getPower();
             if (power <= 0) {
-                this.noPowerNode.setPosition(375, 667);
+                this.noPowerNode.active = true;
                 return;
             }
             power -= 2;
@@ -257,7 +250,7 @@ var PlayController = /** @class */ (function (_super) {
             this.intervalBegin = setInterval(this.countdown.bind(this), 1000);
             this.countdownNum = 5;
             this.countdownLabel.string = this.countdownNum;
-            this.countdownNode.setPosition(375, 667);
+            this.countdownNode.active = true;
         }
         else {
             this.refreshUI();
@@ -267,31 +260,23 @@ var PlayController = /** @class */ (function (_super) {
         this.countdownNum--;
         this.countdownLabel.string = this.countdownNum;
         if (this.countdownNum == 0) {
-            this.countdownNode.setPosition(-527, 667);
+            this.countdownNode.active = false;
             if (this.intervalBegin) {
                 clearInterval(this.intervalBegin);
             }
-            this.bingoItemMaskNode.setPosition(-270, 600);
+            this.bingoItemMaskNode.active = false;
             this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "放弃";
             this.isBeginGame = 2;
-            // this.modeButton.interactable = false;
+            this.gameTime = 0;
             this.addScrollerItem(); //先执行一次
-            var spawningTime_temp = this.spawningTime;
-            // var mode = this.user.getGameMode();
-            // if (mode == "2") {
-            //     this.helpButton.interactable = false;
-            //     spawningTime_temp /= 2;
-            // } else {
-            //     this.helpButton.interactable = true;
-            // }
-            this.intervalNum = setInterval(this.addScrollerItem.bind(this), 1000 * spawningTime_temp);
         }
     };
     PlayController.prototype.flyScore = function (item) {
         var s0 = "+1XP";
         var s = cc.instantiate(this.flyScoreNode);
         var pos0 = item.parent.convertToWorldSpaceAR(item.position);
-        var pos1 = cc.v2(181, 1190);
+        pos0 = cc.v2(pos0.x - 375, pos0.y - 667);
+        var pos1 = cc.v2(-211, 516);
         s.setPosition(pos0.x, pos0.y);
         s.getComponent(cc.Label).string = s0;
         this.node.addChild(s);
@@ -397,19 +382,8 @@ var PlayController = /** @class */ (function (_super) {
         }
     };
     PlayController.prototype.bingo = function () {
-        this.bingoItemMaskNode.setPosition(-270, -270);
-        var power = parseInt(this.user.getPower());
-        power += 2;
-        this.user.setPower(power);
-        this.powerLabel.string = power;
-        var money = parseInt(this.user.getMoney());
-        money += 100;
-        this.user.setMoney(money);
-        this.moneyLabel.string = money;
+        this.bingoItemMaskNode.active = true;
         this.isBeginGame = 3;
-        if (this.intervalNum) {
-            clearInterval(this.intervalNum);
-        }
         this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
         this.lineCount = 0;
         this.intervalLine = setInterval(this.lineAni.bind(this), 150);
@@ -431,7 +405,7 @@ var PlayController = /** @class */ (function (_super) {
             clearInterval(this.intervalLine);
             var nextNodeScript = this.nextNode.getComponent("Next");
             nextNodeScript.setData(true);
-            this.nextNode.setPosition(375, 667);
+            this.nextNode.active = true;
         }
     };
     PlayController.prototype.bingoAction = function (event) {
@@ -443,45 +417,36 @@ var PlayController = /** @class */ (function (_super) {
                 bingoItemScript.setError();
             }
         });
-        this.nextNode.setPosition(375, 667);
+        this.nextNode.active = true;
         var nextNodeScript = this.nextNode.getComponent("Next");
         nextNodeScript.setData(isAllTrue);
         this.isBeginGame = 3;
         this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
         //this.bingoButton.interactable = false;
         // this.helpButton.interactable = false;
-        if (this.intervalNum) {
-            clearInterval(this.intervalNum);
-        }
     };
     PlayController.prototype.moveRuleAction = function () {
-        if (this.ruleNode.position.y < 2052) {
-            this.ruleNode.setPosition(375, 2052);
+        if (this.ruleNode.active) {
+            this.ruleNode.active = false;
         }
         else {
-            this.ruleNode.setPosition(375, 667);
+            this.ruleNode.active = true;
         }
     };
     PlayController.prototype.update = function (dt) {
         if (this.isBeginGame == 2) {
-            this.gameTime += dt;
-            var spawningTime_temp = this.spawningTime;
-            var movingTime_temp = this.movingTime;
-            var mode = this.user.getGameMode();
-            if (mode == "2") {
-                spawningTime_temp /= 2;
-                movingTime_temp /= 2;
-            }
-            if (this.gameTime >= spawningTime_temp * (this.randomCount - 1) + movingTime_temp) {
-                //this.bingoAction(null);
-                this.nextNode.setPosition(375, 667);
-                this.isBeginGame = 3;
-                if (this.intervalNum) {
-                    clearInterval(this.intervalNum);
+            this.gameTime++;
+            if (this.gameTime % (60 * this.spawningTime) == 0) {
+                if (this.scrollerItemCount >= this.randomCount) {
+                    this.isBeginGame = 3;
+                    this.nextNode.active = true;
+                    this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
+                    var nextNodeScript = this.nextNode.getComponent("Next");
+                    nextNodeScript.setData(false);
                 }
-                this.beginGameButton.node.getChildByName("Label").getComponent(cc.Label).string = "准备";
-                var nextNodeScript = this.nextNode.getComponent("Next");
-                nextNodeScript.setData(false);
+                else {
+                    this.addScrollerItem();
+                }
             }
         }
     };
@@ -495,7 +460,7 @@ var PlayController = /** @class */ (function (_super) {
         var _this = this;
         var self = this;
         Platform_1.default.share(0, function () {
-            var power = parseInt(self.user.getPower());
+            var power = self.user.getPower();
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
@@ -505,18 +470,20 @@ var PlayController = /** @class */ (function (_super) {
         });
     };
     PlayController.prototype.nextCallback = function () {
-        var power = parseInt(this.user.getPower());
+        var power = this.user.getPower();
         this.powerLabel.string = power;
+        var money = this.user.getMoney();
+        this.moneyLabel.string = money;
         this.refreshUI();
     };
     PlayController.prototype.changeModeAction = function (event) {
-        if (this.guideNode0.position.x > 0) {
-            this.guideNode0.setPosition(-858, 480);
-        }
-        if (!this.user.getIsShowGuide0()) {
-            this.user.setIsShowGuide0(true);
-        }
-        this.modeNode.setPosition(270, 480);
+        // if (this.guideNode0.position.x > 0) {
+        //     this.guideNode0.setPosition(-858, 480);
+        // }
+        // if (!this.user.getIsShowGuide0()) {
+        //     this.user.setIsShowGuide0(true);
+        // }
+        // this.modeNode.setPosition(270, 480);
     };
     PlayController.prototype.helpAction = function (event) {
         // var helpCount = parseInt(this.user.getHelpCount());
@@ -535,15 +502,18 @@ var PlayController = /** @class */ (function (_super) {
         // }
     };
     PlayController.prototype.moveNoPowerNodeAction = function () {
-        this.noPowerNode.setPosition(-527, 2052);
+        this.noPowerNode.active = false;
     };
     PlayController.prototype.timeOutAction = function () {
-        // this.timeOut *= -1;
-        // if (this.timeOut == 1) { //暂停
-        //     Game.pause();
-        // } else { //继续
-        //     Game.resume();
-        // }
+        this.timeOut *= -1;
+        if (this.timeOut == 1) { //暂停
+            cc.director.pause();
+            this.timeOutButton.node.getChildByName("Label").getComponent(cc.Label).string = "继续";
+        }
+        else { //继续
+            cc.director.resume();
+            this.timeOutButton.node.getChildByName("Label").getComponent(cc.Label).string = "暂停";
+        }
     };
     __decorate([
         property(cc.Prefab)

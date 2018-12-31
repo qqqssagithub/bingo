@@ -1,57 +1,57 @@
-2018-12-24T16:18:45.981Z - normal: Load ~/.CocosCreator/settings.json
-2018-12-24T16:18:45.986Z - normal: checking language setting...
-2018-12-24T16:18:45.986Z - normal: Language: zh
-2018-12-24T16:18:49.682Z - success: protocol editor-framework registered
-2018-12-24T16:18:49.682Z - success: protocol app registered
-2018-12-24T16:18:49.682Z - success: protocol theme registered
-2018-12-24T16:18:49.682Z - success: protocol packages registered
-2018-12-24T16:18:49.683Z - success: protocol unpack registerred
-2018-12-24T16:18:49.683Z - success: protocol disable-commonjs registerred
-2018-12-24T16:18:49.756Z - normal: connected!
-2018-12-24T16:18:49.757Z - normal: Check project /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-24T16:18:49.759Z - normal: Initializing Cocos2d
-2018-12-24T16:18:50.690Z - normal: Initializing Asset Database
-2018-12-24T16:18:50.826Z - success: protocol uuid registerred
-2018-12-24T16:18:50.826Z - success: protocol db registerred
-2018-12-24T16:18:50.826Z - success: protocol thumbnail registerred
-2018-12-24T16:18:50.827Z - normal: Loading editor/builtin packages
-2018-12-24T16:18:50.929Z - success: anysdk loaded
-2018-12-24T16:18:51.106Z - success: assets loaded
-2018-12-24T16:18:51.110Z - success: builder loaded
-2018-12-24T16:18:51.113Z - success: cocos-analytics loaded
-2018-12-24T16:18:51.118Z - success: console loaded
-2018-12-24T16:18:51.153Z - success: fb-instant-games loaded
-2018-12-24T16:18:51.158Z - success: hierarchy loaded
-2018-12-24T16:18:51.163Z - success: inspector loaded
-2018-12-24T16:18:51.165Z - success: keystore loaded
-2018-12-24T16:18:51.174Z - success: node-library loaded
-2018-12-24T16:18:51.177Z - success: package-asset loaded
-2018-12-24T16:18:51.180Z - success: preferences loaded
-2018-12-24T16:18:51.188Z - success: project-exporter loaded
-2018-12-24T16:18:51.219Z - success: project-importer loaded
-2018-12-24T16:18:51.223Z - success: project-settings loaded
-2018-12-24T16:18:51.226Z - success: ui-kit loaded
-2018-12-24T16:18:51.271Z - success: ui-grid loaded
-2018-12-24T16:18:51.288Z - success: scene loaded
-2018-12-24T16:18:51.289Z - success: sprite-editor loaded
-2018-12-24T16:18:51.294Z - success: store loaded
-2018-12-24T16:18:51.301Z - success: timeline loaded
-2018-12-24T16:18:51.301Z - normal: Loading builtin packages
-2018-12-24T16:18:51.314Z - success: asset-db-debugger loaded
-2018-12-24T16:18:51.315Z - success: color-picker loaded
-2018-12-24T16:18:51.319Z - success: package-manager loaded
-2018-12-24T16:18:51.328Z - success: sdkbox loaded
-2018-12-24T16:18:51.334Z - success: tester loaded
-2018-12-24T16:18:51.338Z - success: ui-kit-preview-extra loaded
-2018-12-24T16:18:51.341Z - success: ui-kit-preview loaded
-2018-12-24T16:18:51.369Z - success: ui-tree loaded
-2018-12-24T16:18:53.368Z - normal: Initializing project /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-24T16:18:53.369Z - normal: Loading packages
-2018-12-24T16:18:53.375Z - normal: Watching packages
-2018-12-24T16:18:53.377Z - normal: Run Application
-2018-12-24T16:18:55.332Z - success: preview server running at http://localhost:7456
-2018-12-24T16:19:05.742Z - normal: 1.9.1
-2018-12-24T16:50:54.129Z - normal: Start building with options : {
+2018-12-31T05:58:09.060Z - normal: Load ~/.CocosCreator/settings.json
+2018-12-31T05:58:09.064Z - normal: checking language setting...
+2018-12-31T05:58:09.064Z - normal: Language: zh
+2018-12-31T05:58:12.032Z - success: protocol editor-framework registered
+2018-12-31T05:58:12.032Z - success: protocol app registered
+2018-12-31T05:58:12.032Z - success: protocol theme registered
+2018-12-31T05:58:12.032Z - success: protocol packages registered
+2018-12-31T05:58:12.032Z - success: protocol unpack registerred
+2018-12-31T05:58:12.033Z - success: protocol disable-commonjs registerred
+2018-12-31T05:58:12.203Z - normal: connected!
+2018-12-31T05:58:12.204Z - normal: Check project /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-31T05:58:12.205Z - normal: Initializing Cocos2d
+2018-12-31T05:58:12.567Z - normal: Initializing Asset Database
+2018-12-31T05:58:12.663Z - success: protocol uuid registerred
+2018-12-31T05:58:12.663Z - success: protocol db registerred
+2018-12-31T05:58:12.663Z - success: protocol thumbnail registerred
+2018-12-31T05:58:12.664Z - normal: Loading editor/builtin packages
+2018-12-31T05:58:12.809Z - success: anysdk loaded
+2018-12-31T05:58:12.995Z - success: assets loaded
+2018-12-31T05:58:12.999Z - success: builder loaded
+2018-12-31T05:58:13.001Z - success: cocos-analytics loaded
+2018-12-31T05:58:13.012Z - success: console loaded
+2018-12-31T05:58:13.046Z - success: fb-instant-games loaded
+2018-12-31T05:58:13.050Z - success: hierarchy loaded
+2018-12-31T05:58:13.056Z - success: inspector loaded
+2018-12-31T05:58:13.057Z - success: keystore loaded
+2018-12-31T05:58:13.067Z - success: node-library loaded
+2018-12-31T05:58:13.069Z - success: package-asset loaded
+2018-12-31T05:58:13.071Z - success: preferences loaded
+2018-12-31T05:58:13.074Z - success: project-exporter loaded
+2018-12-31T05:58:13.102Z - success: project-importer loaded
+2018-12-31T05:58:13.105Z - success: project-settings loaded
+2018-12-31T05:58:13.137Z - success: ui-kit loaded
+2018-12-31T05:58:13.149Z - success: ui-grid loaded
+2018-12-31T05:58:13.154Z - success: scene loaded
+2018-12-31T05:58:13.155Z - success: sprite-editor loaded
+2018-12-31T05:58:13.159Z - success: store loaded
+2018-12-31T05:58:13.166Z - success: timeline loaded
+2018-12-31T05:58:13.166Z - normal: Loading builtin packages
+2018-12-31T05:58:13.181Z - success: asset-db-debugger loaded
+2018-12-31T05:58:13.182Z - success: color-picker loaded
+2018-12-31T05:58:13.186Z - success: package-manager loaded
+2018-12-31T05:58:13.234Z - success: sdkbox loaded
+2018-12-31T05:58:13.242Z - success: tester loaded
+2018-12-31T05:58:13.257Z - success: ui-kit-preview-extra loaded
+2018-12-31T05:58:13.260Z - success: ui-kit-preview loaded
+2018-12-31T05:58:13.280Z - success: ui-tree loaded
+2018-12-31T05:58:14.990Z - normal: Initializing project /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-31T05:58:15.040Z - normal: Loading packages
+2018-12-31T05:58:15.045Z - normal: Watching packages
+2018-12-31T05:58:15.048Z - normal: Run Application
+2018-12-31T05:58:17.844Z - success: preview server running at http://localhost:7456
+2018-12-31T05:58:29.450Z - normal: 1.9.1
+2018-12-31T06:23:38.623Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "",
   "appABIs": [],
@@ -115,25 +115,25 @@
   "projectName": "bingo",
   "debugBuildWorker": false
 }
-2018-12-24T16:50:54.134Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-24T16:50:54.135Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-24T16:50:54.877Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-24T16:51:02.039Z - normal: Compiled project javascript file successfully
-2018-12-24T16:51:02.053Z - normal: Start building assets
-2018-12-24T16:51:02.053Z - normal: Start spawn build-worker
-2018-12-24T16:51:03.341Z - normal: Finish spawn build-worker
-2018-12-24T16:51:03.341Z - normal: Start init build-worker
-2018-12-24T16:51:07.378Z - normal: 1.9.1
-2018-12-24T16:51:07.663Z - normal: Finish init build-worker
-2018-12-24T16:51:07.663Z - normal: Start build-assets in worker
-2018-12-24T16:51:09.347Z - normal: Finish build-assets in worker
-2018-12-24T16:51:09.357Z - normal: Finish building assets
-2018-12-24T16:51:09.374Z - normal: Start building raw assets
-2018-12-24T16:51:09.376Z - normal: Start building plugin scripts
-2018-12-24T16:51:09.544Z - normal: Finish building raw assets
-2018-12-24T16:51:09.589Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-24T16:51:10.035Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-24T17:00:09.692Z - normal: Start building with options : {
+2018-12-31T06:23:38.688Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-31T06:23:38.689Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
+2018-12-31T06:23:41.041Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
+2018-12-31T06:23:57.739Z - normal: Compiled project javascript file successfully
+2018-12-31T06:23:57.784Z - normal: Start building assets
+2018-12-31T06:23:57.784Z - normal: Start spawn build-worker
+2018-12-31T06:24:00.834Z - normal: Finish spawn build-worker
+2018-12-31T06:24:00.834Z - normal: Start init build-worker
+2018-12-31T06:24:15.971Z - normal: 1.9.1
+2018-12-31T06:24:16.929Z - normal: Finish init build-worker
+2018-12-31T06:24:16.929Z - normal: Start build-assets in worker
+2018-12-31T06:24:20.949Z - normal: Finish build-assets in worker
+2018-12-31T06:24:20.963Z - normal: Finish building assets
+2018-12-31T06:24:20.989Z - normal: Start building raw assets
+2018-12-31T06:24:20.990Z - normal: Start building plugin scripts
+2018-12-31T06:24:23.812Z - normal: Finish building raw assets
+2018-12-31T06:24:24.617Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-12-31T06:24:30.048Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
+2018-12-31T07:10:57.821Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "",
   "appABIs": [],
@@ -197,25 +197,41 @@
   "projectName": "bingo",
   "debugBuildWorker": false
 }
-2018-12-24T17:00:09.713Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-24T17:00:09.714Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-24T17:00:09.715Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-24T17:00:15.640Z - normal: Compiled project javascript file successfully
-2018-12-24T17:00:15.641Z - normal: Start building assets
-2018-12-24T17:00:15.641Z - normal: Start spawn build-worker
-2018-12-24T17:00:16.676Z - normal: Finish spawn build-worker
-2018-12-24T17:00:16.676Z - normal: Start init build-worker
-2018-12-24T17:00:20.324Z - normal: 1.9.1
-2018-12-24T17:00:20.539Z - normal: Finish init build-worker
-2018-12-24T17:00:20.539Z - normal: Start build-assets in worker
-2018-12-24T17:00:21.905Z - normal: Finish build-assets in worker
-2018-12-24T17:00:21.908Z - normal: Finish building assets
-2018-12-24T17:00:21.925Z - normal: Start building raw assets
-2018-12-24T17:00:21.926Z - normal: Start building plugin scripts
-2018-12-24T17:00:22.080Z - normal: Finish building raw assets
-2018-12-24T17:00:22.099Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-24T17:00:22.528Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-24T17:04:41.604Z - normal: Start building with options : {
+2018-12-31T07:10:57.843Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-31T07:10:57.843Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
+2018-12-31T07:10:57.845Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
+2018-12-31T07:11:04.015Z - normal: Compiled project javascript file successfully
+2018-12-31T07:11:04.016Z - normal: Start building assets
+2018-12-31T07:11:04.016Z - normal: Start spawn build-worker
+2018-12-31T07:11:05.216Z - normal: Finish spawn build-worker
+2018-12-31T07:11:05.217Z - normal: Start init build-worker
+2018-12-31T07:11:08.732Z - normal: 1.9.1
+2018-12-31T07:11:08.994Z - normal: Finish init build-worker
+2018-12-31T07:11:08.995Z - normal: Start build-assets in worker
+2018-12-31T07:11:10.469Z - normal: Finish build-assets in worker
+2018-12-31T07:11:10.474Z - normal: Finish building assets
+2018-12-31T07:11:10.491Z - normal: Start building raw assets
+2018-12-31T07:11:10.492Z - normal: Start building plugin scripts
+2018-12-31T07:11:10.958Z - normal: Finish building raw assets
+2018-12-31T07:11:10.992Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-12-31T07:11:11.554Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
+2018-12-31T07:15:59.226Z - warn: The SpriteFrame used by component "cc.Sprite" is missing. Detailed information:
+Node path: "Canvas/MainLayout/countdownNode/New Sprite(Splash)"
+Missing uuid: "a23235d1-15db-4b95-8439-a2e005bfff91"
+
+2018-12-31T07:15:59.245Z - warn: The SpriteFrame used by component "cc.Button" is missing. Detailed information:
+Node path: "Canvas/MainLayout/modeNode/New Button"
+Missing uuid: "f0048c10-f03e-4c97-b9d3-3506e1d58952"
+
+2018-12-31T07:15:59.246Z - warn: The SpriteFrame used by component "cc.Button" is missing. Detailed information:
+Node path: "Canvas/MainLayout/modeNode/New Button"
+Missing uuid: "e9ec654c-97a2-4787-9325-e6a10375219a"
+
+2018-12-31T07:15:59.246Z - warn: The SpriteFrame used by component "cc.Button" is missing. Detailed information:
+Node path: "Canvas/MainLayout/modeNode/New Button"
+Missing uuid: "29158224-f8dd-4661-a796-1ffab537140e"
+
+2018-12-31T07:16:09.063Z - normal: Start building with options : {
   "androidStudio": true,
   "apiLevel": "",
   "appABIs": [],
@@ -279,350 +295,21 @@
   "projectName": "bingo",
   "debugBuildWorker": false
 }
-2018-12-24T17:04:41.622Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-24T17:04:41.622Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-24T17:04:41.623Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-24T17:04:46.473Z - normal: Compiled project javascript file successfully
-2018-12-24T17:04:46.474Z - normal: Start building assets
-2018-12-24T17:04:46.474Z - normal: Start spawn build-worker
-2018-12-24T17:04:47.660Z - normal: Finish spawn build-worker
-2018-12-24T17:04:47.660Z - normal: Start init build-worker
-2018-12-24T17:04:51.076Z - normal: 1.9.1
-2018-12-24T17:04:51.277Z - normal: Finish init build-worker
-2018-12-24T17:04:51.277Z - normal: Start build-assets in worker
-2018-12-24T17:04:52.676Z - normal: Finish build-assets in worker
-2018-12-24T17:04:52.688Z - normal: Finish building assets
-2018-12-24T17:04:52.704Z - normal: Start building raw assets
-2018-12-24T17:04:52.705Z - normal: Start building plugin scripts
-2018-12-24T17:04:52.909Z - normal: Finish building raw assets
-2018-12-24T17:04:52.950Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-24T17:04:53.439Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-25T16:09:30.787Z - normal: Start building with options : {
-  "androidStudio": true,
-  "apiLevel": "",
-  "appABIs": [],
-  "appKey": "",
-  "appSecret": "",
-  "buildPath": "/Users/chenshaowen/Desktop/bingo/bingo/build",
-  "debug": false,
-  "dest": "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame",
-  "encryptJs": true,
-  "excludeScenes": [],
-  "excludedModules": [],
-  "fb-instant-games": {},
-  "includeAnySDK": false,
-  "includeEruda": false,
-  "includeSDKBox": false,
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "jailbreakPlatform": false,
-  "md5Cache": true,
-  "mergeStartScene": false,
-  "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
-  "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
-    "upsideDown": false
-  },
-  "packageName": "org.cocos2d.helloworld",
-  "platform": "wechatgame",
-  "previewHeight": "720",
-  "previewWidth": "1280",
-  "privateKey": "",
-  "qqplay": {
-    "REMOTE_SERVER_ROOT": "",
-    "orientation": "portrait"
-  },
-  "renderMode": "0",
-  "scenes": [
-    "eaa34b67-672c-46cb-914a-22ff641486a7",
-    "d2a02931-dd00-44a0-96c4-324f47342405",
-    "0b2e291c-7c07-4a7e-b74d-d6e747221339"
-  ],
-  "sourceMaps": false,
-  "startScene": "eaa34b67-672c-46cb-914a-22ff641486a7",
-  "template": "link",
-  "title": "bingo",
-  "useDebugKeystore": true,
-  "vsVersion": "auto",
-  "webOrientation": "auto",
-  "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
-    "appid": "wxa77a409a7097af86",
-    "isSubdomain": false,
-    "orientation": "portrait",
-    "subContext": "SubGame"
-  },
-  "xxteaKey": "529d5a7b-b03b-4c",
-  "zipCompressJs": true,
-  "project": "/Users/chenshaowen/Desktop/bingo/bingo",
-  "projectName": "bingo",
-  "debugBuildWorker": false
-}
-2018-12-25T16:09:30.840Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-25T16:09:30.840Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-25T16:09:30.842Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-25T16:09:36.146Z - normal: Compiled project javascript file successfully
-2018-12-25T16:09:36.147Z - normal: Start building assets
-2018-12-25T16:09:36.147Z - normal: Start spawn build-worker
-2018-12-25T16:09:37.145Z - normal: Finish spawn build-worker
-2018-12-25T16:09:37.145Z - normal: Start init build-worker
-2018-12-25T16:09:41.314Z - normal: 1.9.1
-2018-12-25T16:09:41.538Z - normal: Finish init build-worker
-2018-12-25T16:09:41.538Z - normal: Start build-assets in worker
-2018-12-25T16:09:43.494Z - normal: Finish build-assets in worker
-2018-12-25T16:09:43.498Z - normal: Finish building assets
-2018-12-25T16:09:43.511Z - normal: Start building raw assets
-2018-12-25T16:09:43.512Z - normal: Start building plugin scripts
-2018-12-25T16:09:43.720Z - normal: Finish building raw assets
-2018-12-25T16:09:43.747Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-25T16:09:44.215Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-25T16:14:07.456Z - normal: Start building with options : {
-  "androidStudio": true,
-  "apiLevel": "",
-  "appABIs": [],
-  "appKey": "",
-  "appSecret": "",
-  "buildPath": "/Users/chenshaowen/Desktop/bingo/bingo/build",
-  "debug": false,
-  "dest": "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame",
-  "encryptJs": true,
-  "excludeScenes": [],
-  "excludedModules": [],
-  "fb-instant-games": {},
-  "includeAnySDK": false,
-  "includeEruda": false,
-  "includeSDKBox": false,
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "jailbreakPlatform": false,
-  "md5Cache": true,
-  "mergeStartScene": false,
-  "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
-  "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
-    "upsideDown": false
-  },
-  "packageName": "org.cocos2d.helloworld",
-  "platform": "wechatgame",
-  "previewHeight": "720",
-  "previewWidth": "1280",
-  "privateKey": "",
-  "qqplay": {
-    "REMOTE_SERVER_ROOT": "",
-    "orientation": "portrait"
-  },
-  "renderMode": "0",
-  "scenes": [
-    "eaa34b67-672c-46cb-914a-22ff641486a7",
-    "d2a02931-dd00-44a0-96c4-324f47342405",
-    "0b2e291c-7c07-4a7e-b74d-d6e747221339"
-  ],
-  "sourceMaps": false,
-  "startScene": "eaa34b67-672c-46cb-914a-22ff641486a7",
-  "template": "link",
-  "title": "bingo",
-  "useDebugKeystore": true,
-  "vsVersion": "auto",
-  "webOrientation": "auto",
-  "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
-    "appid": "wxa77a409a7097af86",
-    "isSubdomain": false,
-    "orientation": "portrait",
-    "subContext": "SubGame"
-  },
-  "xxteaKey": "529d5a7b-b03b-4c",
-  "zipCompressJs": true,
-  "project": "/Users/chenshaowen/Desktop/bingo/bingo",
-  "projectName": "bingo",
-  "debugBuildWorker": false
-}
-2018-12-25T16:14:07.476Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-25T16:14:07.476Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-25T16:14:07.477Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-25T16:14:12.957Z - normal: Compiled project javascript file successfully
-2018-12-25T16:14:12.958Z - normal: Start building assets
-2018-12-25T16:14:12.958Z - normal: Start spawn build-worker
-2018-12-25T16:14:13.914Z - normal: Finish spawn build-worker
-2018-12-25T16:14:13.914Z - normal: Start init build-worker
-2018-12-25T16:14:16.278Z - normal: 1.9.1
-2018-12-25T16:14:16.451Z - normal: Finish init build-worker
-2018-12-25T16:14:16.451Z - normal: Start build-assets in worker
-2018-12-25T16:14:17.561Z - normal: Finish build-assets in worker
-2018-12-25T16:14:17.567Z - normal: Finish building assets
-2018-12-25T16:14:17.583Z - normal: Start building raw assets
-2018-12-25T16:14:17.584Z - normal: Start building plugin scripts
-2018-12-25T16:14:17.727Z - normal: Finish building raw assets
-2018-12-25T16:14:17.749Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-25T16:14:18.243Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-27T16:20:31.235Z - warn: Error: ipc timeout. message: scene:query-node, session: scene@renderer:2830277
-2018-12-27T16:43:34.691Z - normal: Start building with options : {
-  "androidStudio": true,
-  "apiLevel": "",
-  "appABIs": [],
-  "appKey": "",
-  "appSecret": "",
-  "buildPath": "/Users/chenshaowen/Desktop/bingo/bingo/build",
-  "debug": false,
-  "dest": "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame",
-  "encryptJs": true,
-  "excludeScenes": [],
-  "excludedModules": [],
-  "fb-instant-games": {},
-  "includeAnySDK": false,
-  "includeEruda": false,
-  "includeSDKBox": false,
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "jailbreakPlatform": false,
-  "md5Cache": true,
-  "mergeStartScene": false,
-  "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
-  "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
-    "upsideDown": false
-  },
-  "packageName": "org.cocos2d.helloworld",
-  "platform": "wechatgame",
-  "previewHeight": "720",
-  "previewWidth": "1280",
-  "privateKey": "",
-  "qqplay": {
-    "REMOTE_SERVER_ROOT": "",
-    "orientation": "portrait"
-  },
-  "renderMode": "0",
-  "scenes": [
-    "eaa34b67-672c-46cb-914a-22ff641486a7",
-    "d2a02931-dd00-44a0-96c4-324f47342405",
-    "0b2e291c-7c07-4a7e-b74d-d6e747221339"
-  ],
-  "sourceMaps": false,
-  "startScene": "eaa34b67-672c-46cb-914a-22ff641486a7",
-  "template": "link",
-  "title": "bingo",
-  "useDebugKeystore": true,
-  "vsVersion": "auto",
-  "webOrientation": "auto",
-  "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
-    "appid": "wxa77a409a7097af86",
-    "isSubdomain": false,
-    "orientation": "portrait",
-    "subContext": "SubGame"
-  },
-  "xxteaKey": "529d5a7b-b03b-4c",
-  "zipCompressJs": true,
-  "project": "/Users/chenshaowen/Desktop/bingo/bingo",
-  "projectName": "bingo",
-  "debugBuildWorker": false
-}
-2018-12-27T16:43:34.710Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-27T16:43:34.710Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-27T16:43:34.711Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-27T16:43:40.855Z - normal: Compiled project javascript file successfully
-2018-12-27T16:43:40.855Z - normal: Start building assets
-2018-12-27T16:43:40.856Z - normal: Start spawn build-worker
-2018-12-27T16:43:42.070Z - normal: Finish spawn build-worker
-2018-12-27T16:43:42.070Z - normal: Start init build-worker
-2018-12-27T16:43:48.185Z - normal: 1.9.1
-2018-12-27T16:43:48.498Z - normal: Finish init build-worker
-2018-12-27T16:43:48.498Z - normal: Start build-assets in worker
-2018-12-27T16:43:50.327Z - normal: Finish build-assets in worker
-2018-12-27T16:43:50.331Z - normal: Finish building assets
-2018-12-27T16:43:50.350Z - normal: Start building raw assets
-2018-12-27T16:43:50.351Z - normal: Start building plugin scripts
-2018-12-27T16:43:50.536Z - normal: Finish building raw assets
-2018-12-27T16:43:50.571Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-27T16:43:51.254Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
-2018-12-27T16:49:35.958Z - normal: Start building with options : {
-  "androidStudio": true,
-  "apiLevel": "",
-  "appABIs": [],
-  "appKey": "",
-  "appSecret": "",
-  "buildPath": "/Users/chenshaowen/Desktop/bingo/bingo/build",
-  "debug": false,
-  "dest": "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame",
-  "encryptJs": true,
-  "excludeScenes": [],
-  "excludedModules": [],
-  "fb-instant-games": {},
-  "includeAnySDK": false,
-  "includeEruda": false,
-  "includeSDKBox": false,
-  "inlineSpriteFrames": true,
-  "inlineSpriteFrames_native": true,
-  "jailbreakPlatform": false,
-  "md5Cache": true,
-  "mergeStartScene": false,
-  "oauthLoginServer": "",
-  "optimizeHotUpdate": false,
-  "orientation": {
-    "landscapeLeft": true,
-    "landscapeRight": true,
-    "portrait": false,
-    "upsideDown": false
-  },
-  "packageName": "org.cocos2d.helloworld",
-  "platform": "wechatgame",
-  "previewHeight": "720",
-  "previewWidth": "1280",
-  "privateKey": "",
-  "qqplay": {
-    "REMOTE_SERVER_ROOT": "",
-    "orientation": "portrait"
-  },
-  "renderMode": "0",
-  "scenes": [
-    "eaa34b67-672c-46cb-914a-22ff641486a7",
-    "d2a02931-dd00-44a0-96c4-324f47342405",
-    "0b2e291c-7c07-4a7e-b74d-d6e747221339"
-  ],
-  "sourceMaps": false,
-  "startScene": "eaa34b67-672c-46cb-914a-22ff641486a7",
-  "template": "link",
-  "title": "bingo",
-  "useDebugKeystore": true,
-  "vsVersion": "auto",
-  "webOrientation": "auto",
-  "wechatgame": {
-    "REMOTE_SERVER_ROOT": "",
-    "appid": "wxa77a409a7097af86",
-    "isSubdomain": false,
-    "orientation": "portrait",
-    "subContext": "SubGame"
-  },
-  "xxteaKey": "529d5a7b-b03b-4c",
-  "zipCompressJs": true,
-  "project": "/Users/chenshaowen/Desktop/bingo/bingo",
-  "projectName": "bingo",
-  "debugBuildWorker": false
-}
-2018-12-27T16:49:35.979Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
-2018-12-27T16:49:35.979Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
-2018-12-27T16:49:35.982Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
-2018-12-27T16:49:42.020Z - normal: Compiled project javascript file successfully
-2018-12-27T16:49:42.020Z - normal: Start building assets
-2018-12-27T16:49:42.021Z - normal: Start spawn build-worker
-2018-12-27T16:49:43.152Z - normal: Finish spawn build-worker
-2018-12-27T16:49:43.152Z - normal: Start init build-worker
-2018-12-27T16:49:47.035Z - normal: 1.9.1
-2018-12-27T16:49:47.223Z - normal: Finish init build-worker
-2018-12-27T16:49:47.224Z - normal: Start build-assets in worker
-2018-12-27T16:49:48.402Z - normal: Finish build-assets in worker
-2018-12-27T16:49:48.408Z - normal: Finish building assets
-2018-12-27T16:49:48.426Z - normal: Start building raw assets
-2018-12-27T16:49:48.427Z - normal: Start building plugin scripts
-2018-12-27T16:49:48.570Z - normal: Finish building raw assets
-2018-12-27T16:49:48.610Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
-2018-12-27T16:49:49.045Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully
+2018-12-31T07:16:09.067Z - normal: Building /Users/chenshaowen/Desktop/bingo/bingo
+2018-12-31T07:16:09.068Z - normal: Destination /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame
+2018-12-31T07:16:09.069Z - normal: Delete /Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame/**/*
+2018-12-31T07:16:13.847Z - normal: Compiled project javascript file successfully
+2018-12-31T07:16:13.848Z - normal: Start building assets
+2018-12-31T07:16:13.848Z - normal: Start spawn build-worker
+2018-12-31T07:16:14.834Z - normal: Finish spawn build-worker
+2018-12-31T07:16:14.835Z - normal: Start init build-worker
+2018-12-31T07:16:17.342Z - normal: 1.9.1
+2018-12-31T07:16:17.622Z - normal: Finish init build-worker
+2018-12-31T07:16:17.622Z - normal: Start build-assets in worker
+2018-12-31T07:16:18.784Z - normal: Finish build-assets in worker
+2018-12-31T07:16:18.787Z - normal: Finish building assets
+2018-12-31T07:16:18.806Z - normal: Start building raw assets
+2018-12-31T07:16:18.807Z - normal: Start building plugin scripts
+2018-12-31T07:16:18.957Z - normal: Finish building raw assets
+2018-12-31T07:16:18.978Z - normal: Generating main.js from /Applications/CocosCreator.app/Contents/Resources/static/build-templates/shares/main.js
+2018-12-31T07:16:19.377Z - normal: Built to "/Users/chenshaowen/Desktop/bingo/bingo/build/wechatgame" successfully

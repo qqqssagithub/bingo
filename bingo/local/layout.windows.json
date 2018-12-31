@@ -5,8 +5,8 @@
       "main": true,
       "url": "app://editor/index.html",
       "windowType": "dockable",
-      "x": -1741,
-      "y": 5,
+      "x": -1733,
+      "y": 0,
       "width": 1642,
       "height": 1040,
       "layout": {
@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 515,
+                "height": 506,
                 "type": "panel",
-                "width": 286
+                "width": 242
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 448,
+                "height": 440,
                 "type": "panel",
-                "width": 286
+                "width": 242
               }
             ],
-            "height": 966,
+            "height": 949,
             "type": "dock-v",
-            "width": 286
+            "width": 242
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 716,
+                "height": 703,
                 "type": "panel",
-                "width": 948
+                "width": 803
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 247,
+                "height": 243,
                 "type": "panel",
-                "width": 948
+                "width": 803
               }
             ],
-            "height": 966,
+            "height": 949,
             "type": "dock-v",
-            "width": 948
+            "width": 803
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 966,
+            "height": 949,
             "type": "panel",
-            "width": 690
+            "width": 585
           }
         ],
         "type": "dock-h"
@@ -83,7 +83,7 @@
         "timeline"
       ]
     },
-    "window-1545929006345": {}
+    "window-1546240561711": {}
   },
   "panels": {
     "sprite-editor": {

@@ -17,9 +17,13 @@ var Platform_1 = require("../Game/Platform/Platform");
 var UserManager = /** @class */ (function (_super) {
     __extends(UserManager, _super);
     function UserManager() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        // LIFE-CYCLE CALLBACKS:
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.lv = 1;
+        _this.progress = 0;
+        return _this;
+        // update (dt) {}
     }
-    // LIFE-CYCLE CALLBACKS:
     // onLoad () {}
     UserManager.prototype.start = function () {
     };
@@ -81,13 +85,33 @@ var UserManager = /** @class */ (function (_super) {
         }
         return parseInt(totalScore);
     };
-    UserManager.prototype.getLv = function () {
+    UserManager.prototype.getLvAndProgress = function () {
         var totalScore = this.getTotalScore();
-        return Math.floor(totalScore / 10);
+        console.log('总分：', totalScore);
+        this.lv = 1;
+        var isContinue = true;
+        while (isContinue) {
+            var l = totalScore / this.lv / 10;
+            if (l > 1) {
+                totalScore -= this.lv * 10;
+                this.lv++;
+            }
+            else {
+                this.progress = totalScore / this.lv / 10;
+                console.log('progress: ', this.progress);
+                this.lv--;
+                console.log('lv: ', this.lv);
+                isContinue = false;
+            }
+        }
+    };
+    UserManager.prototype.getLv = function () {
+        this.getLvAndProgress();
+        return this.lv;
     };
     UserManager.prototype.getProgress = function () {
-        var totalScore = this.getTotalScore();
-        return totalScore % 10 / 10;
+        this.getLvAndProgress();
+        return this.progress;
     };
     UserManager.prototype.setPower = function (power) {
         cc.sys.localStorage.setItem('power', power);

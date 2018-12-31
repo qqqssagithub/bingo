@@ -34,8 +34,8 @@ var Next = /** @class */ (function (_super) {
     };
     Next.prototype.setData = function (isSuccess) {
         if (isSuccess) {
-            this.successNode.opacity = 255;
-            this.failureNode.opacity = 0;
+            this.successNode.active = true;
+            this.failureNode.active = false;
             // this.user = cc.instantiate(this.userManager).getComponent('UserManager');
             // var mode = this.user.getGameMode();
             // var totalScore = this.user.getTotalScore();
@@ -54,14 +54,20 @@ var Next = /** @class */ (function (_super) {
             // this.user.setTotalScore(totalScore);
         }
         else {
-            this.successNode.opacity = 0;
-            this.failureNode.opacity = 255;
+            this.successNode.active = false;
+            this.failureNode.active = true;
         }
     };
     Next.prototype.closeSelfAction = function (event) {
-        this.successNode.opacity = 0;
-        this.failureNode.opacity = 0;
-        this.node.setPosition(1902, 667);
+        var power = parseInt(this.user.getPower());
+        power += 2;
+        this.user.setPower(power);
+        var money = parseInt(this.user.getMoney());
+        money += 100;
+        this.user.setMoney(money);
+        this.successNode.active = false;
+        this.failureNode.active = false;
+        this.node.active = false;
         if (this.callback) {
             this.callback();
         }
@@ -71,11 +77,14 @@ var Next = /** @class */ (function (_super) {
         var self = this;
         Platform_1.default.share(1, function () {
             var power = parseInt(_this.user.getPower());
-            power += 2;
+            power += 2 * 2;
             _this.user.setPower(power);
-            self.successNode.opacity = 0;
-            self.failureNode.opacity = 0;
-            self.node.setPosition(1902, 667);
+            var money = parseInt(_this.user.getMoney());
+            money += 100 * 2;
+            _this.user.setMoney(money);
+            self.successNode.active = false;
+            self.failureNode.active = false;
+            self.node.active = false;
             if (self.callback) {
                 self.callback();
             }

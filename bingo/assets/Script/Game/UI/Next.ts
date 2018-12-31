@@ -38,8 +38,8 @@ export default class Next extends cc.Component {
 
     setData(isSuccess) {
         if (isSuccess) {
-            this.successNode.opacity = 255;
-            this.failureNode.opacity = 0;
+            this.successNode.active = true;
+            this.failureNode.active = false;
             // this.user = cc.instantiate(this.userManager).getComponent('UserManager');
             // var mode = this.user.getGameMode();
             // var totalScore = this.user.getTotalScore();
@@ -57,15 +57,22 @@ export default class Next extends cc.Component {
             // totalScore += scroe;
             // this.user.setTotalScore(totalScore);
         } else {
-            this.successNode.opacity = 0;
-            this.failureNode.opacity = 255;
+            this.successNode.active = false;
+            this.failureNode.active = true;
         }
     }
 
     closeSelfAction(event) {
-        this.successNode.opacity = 0;
-        this.failureNode.opacity = 0;
-        this.node.setPosition(1902, 667);
+        var power = parseInt(this.user.getPower());
+        power += 2;
+        this.user.setPower(power);
+        var money = parseInt(this.user.getMoney());
+        money += 100;
+        this.user.setMoney(money);
+
+        this.successNode.active = false;
+        this.failureNode.active = false;
+        this.node.active = false;
         if (this.callback) {
             this.callback();
         }
@@ -75,11 +82,15 @@ export default class Next extends cc.Component {
         var self = this;
         Platform.share(1, () => {
             var power = parseInt(this.user.getPower());
-            power += 2;
+            power += 2 * 2;
             this.user.setPower(power);
-            self.successNode.opacity = 0;
-            self.failureNode.opacity = 0;
-            self.node.setPosition(1902, 667);
+            var money = parseInt(this.user.getMoney());
+            money += 100 * 2;
+            this.user.setMoney(money);
+
+            self.successNode.active = false;
+            self.failureNode.active = false;
+            self.node.active = false;
             if (self.callback) {
                 self.callback();
             }

@@ -115,7 +115,7 @@ export default class MenuController extends cc.Component {
     beginAction() {
         var power = parseInt(this.user.getPower());
         if (power <= 0) {
-            this.noPowerNode.setPosition(0, 0);
+            this.noPowerNode.active = true;
             return;
         }
 
@@ -137,7 +137,7 @@ export default class MenuController extends cc.Component {
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
-            if (this.noPowerNode.position.x <= 0) {
+            if (this.noPowerNode.active) {
                 this.moveNoPowerNodeAction();
             }
         });
@@ -145,6 +145,6 @@ export default class MenuController extends cc.Component {
     // update (dt) {}
 
     moveNoPowerNodeAction() {
-        this.noPowerNode.setPosition(780, 0);
+        this.noPowerNode.active = false;
     }
 }

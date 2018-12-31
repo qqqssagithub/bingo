@@ -32,7 +32,11 @@ export default class ScrollerItem extends cc.Component {
 
     movingTime = 0;
     answer = '';
+    answerIndex = 0;
     isStop = false;
+
+    contentLabel_arr = null;
+    sprite_arr = null;
 
     onLoad() {
 
@@ -46,16 +50,16 @@ export default class ScrollerItem extends cc.Component {
 
     setData(content, movingTime) {
         this.movingTime = movingTime;
-        var contentLabel_arr = [];
-        contentLabel_arr.push(this.contentLabel0);
-        contentLabel_arr.push(this.contentLabel1);
-        contentLabel_arr.push(this.contentLabel2);
-        contentLabel_arr.push(this.contentLabel3);
-        var sprite_arr = [];
-        sprite_arr.push(this.sprite0);
-        sprite_arr.push(this.sprite1);
-        sprite_arr.push(this.sprite2);
-        sprite_arr.push(this.sprite3);
+        this.contentLabel_arr = [];
+        this.contentLabel_arr.push(this.contentLabel0);
+        this.contentLabel_arr.push(this.contentLabel1);
+        this.contentLabel_arr.push(this.contentLabel2);
+        this.contentLabel_arr.push(this.contentLabel3);
+        this.sprite_arr = [];
+        this.sprite_arr.push(this.sprite0);
+        this.sprite_arr.push(this.sprite1);
+        this.sprite_arr.push(this.sprite2);
+        this.sprite_arr.push(this.sprite3);
 
         var content_arr = content.split(',');
         if (content_arr.length >= 4) {
@@ -66,26 +70,27 @@ export default class ScrollerItem extends cc.Component {
             for (let i = 0; i < content_str.length; i++) {
                 const element = content_str.charAt(i);
                 if (i == index) {
+                    this.answerIndex = index;
                     this.answer = element;
                     if (tag == 'B') {
-                        contentLabel_arr[i].string = 'B';
-                        contentLabel_arr[i].node.color = cc.color(52, 192, 252);
+                        this.contentLabel_arr[i].string = 'B';
+                        this.contentLabel_arr[i].node.color = cc.color(52, 192, 252);
                     } else if (tag == 'I') {
-                        contentLabel_arr[i].string = 'I';
-                        contentLabel_arr[i].node.color = cc.color(255, 224, 35);
+                        this.contentLabel_arr[i].string = 'I';
+                        this.contentLabel_arr[i].node.color = cc.color(255, 224, 35);
                     } else if (tag == 'N') {
-                        contentLabel_arr[i].string = 'N';
-                        contentLabel_arr[i].node.color = cc.color(178, 79, 248);
+                        this.contentLabel_arr[i].string = 'N';
+                        this.contentLabel_arr[i].node.color = cc.color(178, 79, 248);
                     } else if (tag == 'G') {
-                        contentLabel_arr[i].string = 'G';
-                        contentLabel_arr[i].node.color = cc.color(0, 90, 253);
+                        this.contentLabel_arr[i].string = 'G';
+                        this.contentLabel_arr[i].node.color = cc.color(0, 90, 253);
                     } else if (tag == 'O') {
-                        contentLabel_arr[i].string = 'O';
-                        contentLabel_arr[i].node.color = cc.color(0, 203, 0);
+                        this.contentLabel_arr[i].string = 'O';
+                        this.contentLabel_arr[i].node.color = cc.color(0, 203, 0);
                     }
-                    sprite_arr[i].node.opacity = 255;
+                    this.sprite_arr[i].node.opacity = 255;
                 } else {
-                    contentLabel_arr[i].string = element;
+                    this.contentLabel_arr[i].string = element;
                 }
             }
         }
@@ -95,5 +100,10 @@ export default class ScrollerItem extends cc.Component {
         return this.answer;
     }
 
+    showAnswer() {
+        this.contentLabel_arr[this.answerIndex].string = this.answer;
+        this.contentLabel_arr[this.answerIndex].node.color = cc.color(252, 0, 0);
+        this.sprite_arr[this.answerIndex].node.opacity = 0;
+    }
     // update (dt) {}
 }

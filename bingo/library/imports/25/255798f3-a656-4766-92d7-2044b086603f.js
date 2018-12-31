@@ -101,7 +101,7 @@ var MenuController = /** @class */ (function (_super) {
     MenuController.prototype.beginAction = function () {
         var power = parseInt(this.user.getPower());
         if (power <= 0) {
-            this.noPowerNode.setPosition(0, 0);
+            this.noPowerNode.active = true;
             return;
         }
         cc.director.loadScene("PlayScene");
@@ -120,14 +120,14 @@ var MenuController = /** @class */ (function (_super) {
             power += 2;
             self.user.setPower(power);
             self.powerLabel.string = power;
-            if (_this.noPowerNode.position.x <= 0) {
+            if (_this.noPowerNode.active) {
                 _this.moveNoPowerNodeAction();
             }
         });
     };
     // update (dt) {}
     MenuController.prototype.moveNoPowerNodeAction = function () {
-        this.noPowerNode.setPosition(780, 0);
+        this.noPowerNode.active = false;
     };
     __decorate([
         property(cc.Prefab)

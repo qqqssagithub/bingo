@@ -85,13 +85,35 @@ export default class UserManager extends cc.Component {
         return parseInt(totalScore);
     }
 
-    getLv() {
+    lv = 1;
+    progress = 0;
+    getLvAndProgress() {
         var totalScore = this.getTotalScore();
-        return Math.floor(totalScore / 10);
+        console.log('总分：', totalScore);
+        
+        this.lv = 1;
+        var isContinue = true;
+        while (isContinue) {
+            var l = totalScore / this.lv / 10;
+            if (l > 1) {
+                totalScore -= this.lv * 10;
+                this.lv++;
+            } else {
+                this.progress = totalScore / this.lv / 10;
+                console.log('progress: ', this.progress);
+                this.lv--;
+                console.log('lv: ', this.lv);
+                isContinue = false;
+            }
+        }
+    }
+    getLv() {
+        this.getLvAndProgress();
+        return this.lv;
     }
     getProgress() {
-        var totalScore = this.getTotalScore();
-        return totalScore % 10 / 10;
+        this.getLvAndProgress();
+        return this.progress;
     }
 
     setPower(power) {

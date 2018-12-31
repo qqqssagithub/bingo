@@ -9,18 +9,24 @@
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
 module.exports = {
+    time: 0,
+    shareCb: null,
     getUserInfo(cb) {
-        wx.getUserInfo({
-            success: function (res) {
-                console.log('获取玩家信息成功');
-                console.log(res)
-                cb(null, res);
-            },
-            fail: function () {
-                console.log('获取玩家信息出错');
-                cb("wx:getUserInfo_fail", null);
+        wx.login({
+            success: function () {
+                wx.getUserInfo({
+                    success: function (res) {
+                        console.log('获取玩家信息成功');
+                        console.log(res)
+                        cb(null, res);
+                    },
+                    fail: function () {
+                        console.log('获取玩家信息出错');
+                        cb("wx:getUserInfo_fail", null);
+                    }
+                })
             }
-        })
+        });
     },
     init() {
         var self = this;
@@ -44,7 +50,7 @@ module.exports = {
                 title: '猫鼠大战一触即发，谁是最终王者！',
                 imageUrl: 'images/share.png',
                 success: (res) => {
-                    
+
                 }
             };
 
@@ -52,19 +58,26 @@ module.exports = {
 
         //onshow 也可能点击分享消息进入游戏
         wx.onShow(res => {
-            var query = res.query;
-            console.log("wx.onShow:", res);
-            if (query != undefined && query['inviterId'] != undefined) {
-                console.log("点击分享进入");
-            }
-            else {
-                let entryGameSourceOnShow = {};
-                entryGameSourceOnShow['res'] = res; //所有数据
-                console.log("自己进入");
+            let myDate = new Date();
+            let temp_time = myDate.getTime();
+            console.log(temp_time);
+            let time_v = temp_time - this.time;
+            if (this.shareCb && time_v >= 3000) {
+                console.log('111111111');
+                console.log(time_v);
+                this.shareCb();
+                this.shareCb = null;
+            } else {
+                console.log('22222222');
+                console.log(time_v);
             }
         });
     },
     share(cb) {
+        this.shareCb = cb;
+        let myDate = new Date();
+        this.time = myDate.getTime();
+        console.log(this.time);
         var self = this;
         wx.shareAppMessage({
             // title: shareData.title,
@@ -72,11 +85,6 @@ module.exports = {
             // query: shareData.query,
             title: '猫鼠大战一触即发，谁是最终王者！',
             imageUrl: 'images/share.png',
-            success: (res) => {
-                if (cb) {
-                    cb();
-                }
-            }
         });
     },
     shareShortCutImage(cb) {
@@ -93,7 +101,10 @@ module.exports = {
             destWidth: width,
             destHeight: width * 4 / 5,
             success(res) {
-                console.log(res)
+                self.shareCb = cb;
+                let myDate = new Date();
+                self.time = myDate.getTime();
+                console.log(self.time);
                 wx.shareAppMessage({
                     title: '好学生就是我，成语量超过了80%的微信好友。',
                     imageUrl: res.tempFilePath,
